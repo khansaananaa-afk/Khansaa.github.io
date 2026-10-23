@@ -1,0 +1,522 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><link rel="manifest" href="manifest.json"><meta name="theme-color" content="#17264B"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Study Buddy"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-180.png"><title>Study Buddy — رفيق الدراسة</title>
+<title>Study Buddy — رفيق الدراسة</title>
+<title>Study Buddy — رفيق الدراسة</title>
+<title>Study Buddy — رفيق الدراسة</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F8F5ED;--card:#FFFDF8;--ink:#202A40;--mut:#55617F;--pk:#243B68;--onpk:#F8F5ED;--pk2:#E6EAF3;--ln:#D3DAEA;--star:#F5C451;--onstar:#17264B;--sw:#6F9CCB;--hero:linear-gradient(150deg,#17264B,#243B68);--fd:'Cormorant Garamond','Tajawal',serif;--ok:#2f7d5c;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17264B;--card:#1D3159;--ink:#F8F5ED;--mut:#A9B8D5;--pk:#6F9CCB;--onpk:#17264B;--pk2:#2A4272;--ln:#38527F;--sw:#A9B8D5;--hero:linear-gradient(150deg,#101B38,#243B68);--ok:#7bc4a1;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17264B;--card:#1D3159;--ink:#F8F5ED;--mut:#A9B8D5;--pk:#6F9CCB;--onpk:#17264B;--pk2:#2A4272;--ln:#38527F;--sw:#A9B8D5;--hero:linear-gradient(150deg,#101B38,#243B68);--ok:#7bc4a1;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 Tajawal,"Segoe UI",system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+[hidden]{display:none!important}
+.sky{position:fixed;top:0;inset-inline:0;width:100%;height:240px;pointer-events:none;z-index:0;opacity:.5}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(8px);display:flex;justify-content:space-between;align-items:center;padding:10px 16px}
+header b{font:600 22px var(--fd);letter-spacing:.2px}#clk{background:var(--pk2);border:1px solid var(--ln);border-radius:14px;padding:6px 14px;font:inherit;font-weight:700;color:var(--ink)}
+main{position:relative;z-index:1;max-width:620px;margin:auto;padding:0 16px 100px}
+h2{margin:8px 0;font:600 28px var(--fd)}h3{margin:6px 0;font:600 22px/1.4 var(--fd)}
+nav{position:fixed;bottom:0;inset-inline:0;z-index:6;display:flex;background:var(--card);border-top:1px solid var(--ln);padding:6px 2px calc(6px + env(safe-area-inset-bottom,0px))}
+nav button{flex:1;background:none;border:0;color:var(--mut);font:inherit;font-size:11px;padding:2px 0}nav button.on{color:var(--pk);font-weight:700}nav span{display:block;font-size:20px;line-height:1.3}
+nav button.on::after{content:"";display:block;width:6px;height:6px;margin:2px auto 0;background:var(--star);transform:rotate(45deg)}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:20px;padding:16px;margin:12px 0;box-shadow:0 6px 18px rgba(23,38,75,.07)}
+.hero{background:var(--hero);color:#F8F5ED;border:0;position:relative;overflow:hidden;box-shadow:0 12px 30px rgba(23,38,75,.28)}
+.hero::after{content:"✦";position:absolute;inset-block-start:10px;inset-inline-end:16px;color:var(--star);font-size:20px}
+.hero .tag{background:rgba(245,196,81,.18);color:var(--star)}.hero .mut{color:#A9B8D5}.hero .tm{color:var(--star)}.hero .btn.g{background:rgba(255,255,255,.14);color:#F8F5ED;border-color:transparent}
+.btn{display:block;width:100%;min-height:50px;margin:8px 0;padding:12px 18px;border:0;border-radius:14px;background:var(--star);color:var(--onstar);font:inherit;font-weight:700;font-size:16px}
+.btn:active{transform:scale(.98)}.btn.g{background:var(--pk2);color:var(--ink);border:1px solid var(--ln)}.btn.s{width:auto;min-height:40px;padding:6px 14px;margin:4px}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--sw);outline-offset:2px}
+.rw{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.chip{border:1px solid var(--ln);background:var(--card);color:var(--ink);border-radius:14px;padding:6px 12px;margin:3px;font:inherit;font-size:14px}.chip.on{background:var(--pk);color:var(--onpk);border-color:var(--pk)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.grid .chip{margin:0;min-height:48px}
+.mut{color:var(--mut);font-size:14px}.big{font:600 52px/1.2 var(--fd);color:var(--pk)}.tm{font:600 72px/1.2 var(--fd);text-align:center;font-variant-numeric:lining-nums tabular-nums;color:var(--pk)}
+.bar{height:10px;border-radius:9px;background:var(--pk2);overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;background:var(--pk);border-radius:9px}
+.bub{background:var(--pk2);border:1px solid var(--ln);border-radius:20px;border-start-start-radius:4px;padding:14px 16px;margin:10px 0}
+input,select{width:100%;min-height:46px;margin:5px 0;padding:8px 12px;border:1px solid var(--ln);border-radius:12px;background:var(--card);color:var(--ink);font:inherit}
+input[type=time],input[type=date]{direction:ltr;text-align:start}
+input[type=checkbox]{width:22px;min-height:22px;margin:0;margin-inline-end:8px;accent-color:var(--pk)}label{font-size:14px;color:var(--mut)}
+.r2{display:flex;gap:10px;padding:10px 12px;margin:6px 0;border-radius:14px;background:var(--card);border:1px solid var(--ln)}.r2 b{white-space:nowrap}.r2 span{flex:1}.r2.done{opacity:.55}.r2.break,.r2.long{background:var(--pk2)}.r2.fixed{border-style:dashed}
+.tag{background:var(--pk2);border-radius:10px;padding:2px 10px;font-size:12px}
+.wk{display:flex;gap:6px;align-items:flex-end;height:90px}.wk div{flex:1;text-align:center;font-size:11px}.wk i{display:block;background:var(--pk);border-radius:6px 6px 0 0;min-height:3px}
+#md{position:fixed;inset:0;z-index:20;background:rgba(16,27,56,.6);display:flex;align-items:flex-end;justify-content:center}
+.box{background:var(--bg);width:100%;max-width:620px;max-height:88%;overflow:auto;border-radius:24px 24px 0 0;padding:18px 18px calc(18px + env(safe-area-inset-bottom,0px))}
+#toast{position:fixed;bottom:84px;inset-inline:16px;z-index:30;background:var(--ink);color:var(--bg);border-radius:14px;padding:12px;text-align:center}
+textarea{width:100%;height:90px;border-radius:12px;border:1px solid var(--ln);background:var(--card);color:var(--ink);font-size:12px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+summary{cursor:pointer;color:var(--pk);font-weight:700;padding:8px 0}details{margin:8px 0}.x{width:34px;height:34px;min-height:0;padding:0;border-radius:50%;border:1px solid var(--ln);background:var(--pk2);color:var(--mut);font:inherit;font-size:14px;line-height:1}</style></head><body>
+<svg class="sky" viewBox="0 0 400 240" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><g fill="none" stroke="var(--sw)" stroke-width="1.6" stroke-linecap="round"><path d="M-10 150c60-70 120 30 190-20s90-80 150-30s60 20 80 0"/><path d="M-10 178c70-60 130 40 200-10s100-70 220-20"/><path d="M30 60c40-40 90 10 80 50s-60 40-60 5 40-45 70-30"/><path d="M250 70c30-30 70-10 70 20s-40 35-50 10 20-30 40-18"/></g><g fill="var(--star)"><path d="M330 28l4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/><path d="M70 20l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><path d="M180 44l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5z"/><circle cx="370" cy="110" r="2"/><circle cx="20" cy="120" r="2"/></g></svg><header><b><svg width="20" height="20" viewBox="0 0 24 24" style="vertical-align:-3px;fill:var(--star)"><path d="M12 1l2.5 8.5L23 12l-8.5 2.5L12 23l-2.5-8.5L1 12l8.5-2.5z"/></svg> Study Buddy</b><button id="clk" data-a="clock"></button></header>
+<main id="app"></main>
+<nav><button data-a="go:home"><span>⌂</span>الرئيسية</button><button data-a="go:plan"><span>▤</span>الجدول</button><button data-a="go:session"><span>◷</span>الجلسة</button><button data-a="go:subs"><span>❏</span>المواد</button><button data-a="go:stats"><span>✧</span>إنجازاتي</button><button data-a="go:set"><span>⚙︎</span>الإعدادات</button></nav>
+<div id="md" hidden></div><div id="toast" hidden></div>
+<script>
+const $=s=>document.querySelector(s),v=id=>document.getElementById(id).value,esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=()=>Math.random().toString(36).slice(2,8),DN=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],PR=['','عالية','متوسطة','منخفضة'],DF=['','سهل','متوسط','صعب'],STL={todo:'لم أبدأ',doing:'قيد الدراسة',done:'مكتمل'};
+const DEF={subs:[],recs:[],set:{study:15,brk:5,long:20,every:3,fmt:24,end:1350,theme:'',lang:'ar'},day:null,log:[],off:0,timer:null,xb:null,view:'home'};
+let S,saveOK=true,W=null,M=null,after=null;
+let KEY,REG,CP;
+try{REG=JSON.parse(localStorage.getItem('sb_reg'))}catch(e){}
+if(!Array.isArray(REG)||!REG.length)REG=[{id:'main',name:'مساحتي'}];
+try{CP=localStorage.getItem('sb_cur')}catch(e){}
+if(!REG.some(p=>p.id==CP))CP='main';
+const keyOf=id=>id=='main'?'sb1':'sb1:'+id;KEY=keyOf(CP);
+try{S=Object.assign({},DEF,JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(e){S={...DEF}}
+S.set={...DEF.set,...S.set};
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));saveOK=true}catch(e){saveOK=false}}
+const sysMin=()=>{const d=new Date();return d.getHours()*60+d.getMinutes()},now=()=>((sysMin()+S.off)%1440+1440)%1440,setNow=m=>{S.off=((m-sysMin()+720)%1440+1440)%1440-720};
+const fmt=m=>{m=((m%1440)+1440)%1440;const h=Math.floor(m/60),mm=String(m%60).padStart(2,'0');return S.set.fmt==24?String(h).padStart(2,'0')+':'+mm:(h%12||12)+':'+mm+(h<12?(S.set.lang=='en'?' AM':' ص'):(S.set.lang=='en'?' PM':' م'))};
+const parse=x=>{if(!x)return null;const[a,b]=x.split(':');return+a*60+ +b},tv=m=>String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0'),inp=(id,m)=>`<input type="time" id="${id}" value="${tv(m)}">`;
+const mmss=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0'),today=()=>new Date().toDateString();
+const iso=(o=0)=>{const d=new Date();d.setDate(d.getDate()+o);return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()};
+const LS=()=>S.subs.filter(s=>!s.arch),sub=id=>S.subs.find(s=>s.id==id)||{},rec=id=>S.recs.find(r=>r.id==id),dl=d=>d?Math.ceil((new Date(d)-new Date(new Date().toDateString()))/864e5):null;
+const hero=h=>`<div class="card hero">${h}</div>`,card=h=>`<div class="card">${h}</div>`,bar=p=>`<div class="bar"><i style="width:${p}%"></i></div>`,T=()=>S.xb||S.timer;
+const remain=r=>r.dur&&r.done<r.dur?r.dur-r.done:null,len=b=>b.e-b.s,cur=()=>S.day&&S.day.blocks.find(b=>b.st=='todo');
+const sc=r=>{const s=sub(r.sid),d=[dl(s.exam),dl(r.dl)].filter(x=>x!=null&&x>=0);return(r.prio||s.prio||2)*1e4+(d.length?Math.min(...d):999)+(S.day&&S.day.pin==r.sid?-1e6:0)};
+const queue=sids=>S.recs.filter(r=>sids.includes(r.sid)&&r.status!='done'&&!r.later&&!sub(r.sid).arch).sort((a,b)=>sc(a)-sc(b)||a.num-b.num);
+const rname=r=>esc(sub(r.sid).name)+' · '+esc(r.title||('مهمة '+r.num)),tmed=r=>r&&(r.method=='audio'||r.method=='video');
+function from(b){const r=rec(b.rid);if(!r)return 0;let x=r.done;for(const o of S.day.blocks){if(o===b)break;if(o.st=='todo'&&o.rid==b.rid)x+=len(o)}return x}
+const lab=b=>b.type=='study'?`${rname(rec(b.rid)||{sid:0,num:'؟'})} — ${len(b)} د${tmed(rec(b.rid))?` (من الدقيقة ${from(b)})`:''}`:b.type=='break'?'استراحة ☕':b.type=='long'?'استراحة طويلة 🌿 وقت للحركة وشرب الماء':esc(b.l);
+function build(t,fixed,sids,en,n,l0){const s=S.set,L=en=='tired'?Math.min(s.study,10):s.study,cap=(en=='good'?10:en=='mid'?7:4)+(S.day&&S.day.extra||0),out=[],left=[];let c=n,stop=false,last=l0?1:0;
+for(const r of queue(sids)){if(stop){left.push(r.id);continue}
+let rem=remain(r),k=0;const mx=rem==null?3:Math.ceil(rem/L);
+while(k<mx){if(c>=cap){stop=true;break}
+const l=rem==null?L:Math.min(L,rem);let u=t,bk=null;if(last){bk=c%s.every==0?['long',s.long]:['break',s.brk];u=t+bk[1]}
+let p=u;for(let i=0;i<9;i++){const f=fixed.find(f=>f.s<p+l&&f.e>p);if(!f)break;p=f.e}
+if(p+l>s.end){stop=true;break}
+if(bk&&p==u)out.push({id:uid(),type:bk[0],s:t,e:u,st:'todo'});
+out.push({id:uid(),type:'study',s:p,e:p+l,rid:r.id,st:'todo'});t=p+l;last=1;c++;k++;if(rem!=null)rem-=l}
+if(stop)left.push(r.id)}
+return{out,left}}
+function replan(t,en,keep){const D=S.day;if(!D)return;if(en)D.en=en;const c=keep&&S.timer&&cur()&&cur().id==S.timer.bid?cur():null,k=D.blocks.filter(b=>b.st!='todo'||b===c),n=k.filter(b=>b.type=='study'&&(b.st=='done'||b===c)).length,r=build(c?Math.max(t,c.e):t,D.fixed,D.sids,D.en,n,c&&c.type=='study');D.blocks=k.concat(r.out).sort((a,b)=>a.s-b.s);D.left=r.left;if(!c)S.timer=null}
+const late=b=>b&&b.s+5<=now()&&!(S.timer&&S.timer.bid==b.id)&&!S.xb;
+const lateBn=()=>late(cur())?`<div class="card"><p>الجدول صار قديماً قليلاً، وهذا طبيعي تماماً. يمكنك تثبيت الوقت وسأعيد ترتيب الباقي.</p><button class="btn g" data-a="late">إعادة ترتيب الباقي من الآن</button></div>`:'';
+const rp=r=>r.status=='done'?'✓':r.dur?Math.round(100*Math.min(r.done/r.dur,1))+'%':r.done?r.done+'د':'—';
+const pct=rs=>rs.length?Math.round(100*rs.reduce((a,r)=>a+(r.status=='done'?1:r.dur?Math.min(r.done/r.dur,1):0),0)/rs.length):0;
+function toast(m){const t=$('#toast');t.textContent=tl(m);t.hidden=false;clearTimeout(toast.h);toast.h=setTimeout(()=>t.hidden=true,2600)}
+function modal(t,b,ok,fn){M=fn;$('#md').innerHTML=`<div class="box"><h3>${t}</h3>${b}${ok?`<button class="btn" data-a="mok">${ok}</button>`:''}<button class="btn g" data-a="mx">إغلاق</button></div>`;$('#md').innerHTML=tl($('#md').innerHTML);$('#md').hidden=false}
+const A={};
+A.mx=()=>{$('#md').hidden=true;M=null;after=null};
+A.mok=()=>{const f=M;if(f&&f()===false)return;if(M===f)A.mx()};
+document.addEventListener('click',e=>{const t=e.target.closest('[data-a]');if(!t)return;const[a,...p]=t.dataset.a.split(':');if(e.target.id=='md')return;A[a]&&A[a](...p)});
+document.addEventListener('change',e=>{const k=e.target.dataset.set;if(!k)return;const x=e.target.value;S.set[k]=k=='theme'||k=='lang'?x:k=='end'?(parse(x)||1350):+x;theme();render()});
+const TRS=`إزالة المادة؟¦Remove subject?
+ستُزال المادة من قائمتك وخطتك، وتبقى إنجازاتك وسجل دراستك محفوظين في الإحصائيات.¦The subject is removed from your list and plan; your achievements and study history stay saved in your statistics.
+>إزالة<¦>Remove<
+aria-label="إزالة المادة"¦aria-label="Remove subject"
+ (مؤرشفة)¦ (removed)
++ إضافة مهمة (اختياري)¦+ Add a task (optional)
+ما هي «المهمة»؟¦What is a “task”?
+جزء محدد تريد دراسته من المادة، مثل «الفصل 3» أو «تمارين المجموعة 2» أو «مراجعة المحاضرة 5». تحدّد لها مدة تقديرية اختيارية ويوزّع التطبيق جلسات التركيز عليها. لا حاجة لإضافة مهام: إن تركتها فارغة تُنشأ جلسات «دراسة عامة» للمادة.¦A specific part of the subject you want to study, such as “Chapter 3”, “Problem set 2” or “Review lecture 5”. You can give it an optional estimated duration and the app spreads focus sessions across it. You don’t need to add tasks: if you leave this empty, “General study” sessions are created for the subject.
+مهمة (اختياري)¦Task (optional)
+دراسة عامة¦General study
+اكتملت خطة اليوم 🎉 يمكنك مواصلة الدراسة من صفحة المواد أو إضافة مادة أخرى.¦Today’s plan is complete 🎉 You can keep studying from the Subjects page or add another subject.
+لا توجد جلسات لليوم بعد. يمكنك اختيار مادة وبدئها من صفحة المواد.¦No sessions for today yet. You can pick a subject and start it from the Subjects page.
+بدء المادة¦Start subject
+أضف مهمة لهذه المادة أولاً¦Add a task for this subject first
+مساحتي الشخصية¦My personal space
+المساحة الشخصية: ¦Personal space: 
+لكل مساحة مواد ومهام وسجل وإعدادات منفصلة تماماً على هذا المتصفح.¦Each space has completely separate subjects, tasks, history and settings in this browser.
+لكل مساحة مواد ومهام وسجل وإعدادات خاصة بها. بياناتك محفوظة على هذا المتصفح فقط، ولا تظهر على أجهزة أو متصفحات أخرى، وهي غير محمية بكلمة سر.¦Each space has its own subjects, tasks, history and settings. Your data is stored in this browser only, doesn’t appear on other devices or browsers, and isn’t password-protected.
+تبديل أو إدارة المساحات¦Switch or manage spaces
+مساحتي¦My space
+>فتح<¦>Open<
+placeholder="اسم مساحة جديدة"¦placeholder="New space name"
++ مساحة جديدة¦+ New space
+أدخل اسم المساحة¦Enter a space name
+حذف المساحة؟¦Delete this space?
+ستُحذف كل بياناتها نهائياً.¦All its data will be permanently deleted.
+تثبيت Study Buddy¦Install Study Buddy
+يمكنك تثبيت التطبيق لفتحه بملء الشاشة بدون شريط المتصفح.¦You can install the app to open it full screen without the browser bar.
+لفتحه بملء الشاشة: من قائمة المتصفح (⋮) اختر «إضافة إلى الشاشة الرئيسية» أو «تثبيت التطبيق».¦To open it full screen: from the browser menu (⋮) choose “Add to Home screen” or “Install app”.
+تثبيت التطبيق¦Install app
++ إضافة مادة¦+ Add subject
++ إضافة مهمة¦+ Add task
+مهمة جديدة¦New task
+مهمة أولى (اختياري)¦First task (optional)
+مهمة ¦Task 
+>المادة<¦>Subject<
+عنوان المهمة¦Task title
+placeholder="عنوان المهمة"¦placeholder="Task title"
+placeholder="المدة التقديرية بالدقائق"¦placeholder="Estimated duration in minutes"
+مثال: الفصل 3 / تمارين المجموعة 2¦e.g. Chapter 3 / Problem set 2
+المدة التقديرية بالدقائق (اختياري)¦Estimated duration in minutes (optional)
+الأولوية (اختياري)¦Priority (optional)
+الموعد النهائي (اختياري)¦Deadline (optional)
+طريقة الدراسة (اختياري)¦Study method (optional)
+ملاحظات (اختياري)¦Notes (optional)
+>غير محدد<¦>Not specified<
+>قراءة<¦>Reading<
+>فيديو<¦>Video<
+>صوت<¦>Audio<
+>تمارين<¦>Exercises<
+>مراجعة<¦>Revision<
+>محاضرة مباشرة<¦>Live lecture<
+>أخرى<¦>Other<
+متى؟¦When?
+>لاحقاً<¦>Later<
+بدون تغيير¦No change
+أدخل عنوان المهمة¦Enter a task title
+لا توجد مهام لليوم بعد.¦No tasks for today yet.
+اكتملت خطة اليوم 🎉 يمكنك إضافة مهمة لليوم أو تركها لوقت لاحق.¦Today’s plan is complete 🎉 You can add a task for today or leave it for later.
+انتهى يومك. أحسنت، وتستحق الراحة. يمكنك إضافة مهمة لليوم متى شئت.¦Your day is complete. Well done, you deserve a rest. You can add a task for today any time.
+جاهز للبدء؟ ابدأ فوراً بما لديك، أو رتّب يومك بضعة أسئلة بسيطة.¦Ready? Start right away with what you have, or plan your day with a few simple questions.
+ابدأ الآن¦Start now
+ترتيب مفصّل¦Detailed setup
+أهلاً بك ✦ خطّط لما تريد دراسته، واختر مدة التركيز، وخذ استراحاتك، وتابع تقدّمك. ابدأ بمادة واحدة، ويمكنك إضافة غيرها في أي وقت.¦Welcome ✦ Plan what you need to study, choose how long to focus, take breaks, and track your progress. Start with one subject; add more any time.
+ما المواد التي تريد دراستها اليوم؟ يمكنك البدء بمادة واحدة وإضافة غيرها في أي وقت.¦Which subjects do you want to study today? You can start with just one and add more any time.
+متابعة من الدقيقة ¦Continue from minute 
+(المدة التقديرية ¦(Estimated 
+ — أنجزت ¦ — done 
+(أنجزت ¦(done 
+إذا انتهى الوقت ولم تنتهِ المهمة نتابع لاحقاً من حيث وصلت.¦If time runs out before the task is done, we’ll continue from where you left off.
+كم دقيقة درست فعلياً؟¦How many minutes did you actually study?
+هل فهمت ما درسته؟¦Did you understand what you studied?
+أنهيت المهمة كاملة¦I finished the whole task
+إضافة المواد أولاً¦Add subjects first
+إعادة ترتيب الباقي من الآن¦Reorganize the rest from now
+الجدول صار قديماً قليلاً، وهذا طبيعي تماماً. يمكنك تثبيت الوقت وسأعيد ترتيب الباقي.¦The plan is a little behind, which is perfectly fine. Confirm the time and I’ll reorganize the rest.
+استراحة طويلة 🌿 وقت للحركة وشرب الماء¦Long break 🌿 time to move and drink water
+أهلاً بك ✦ أنا رفيق دراستك. ابدأ بإضافة موادك وتسجيلاتك، ثم نرتّب يومك معاً.¦Welcome ✦ I’m your study companion. Start by adding your subjects and recordings, then we’ll plan your day together.
+إضافة موادي¦Add my subjects
+انتهى يومك. أحسنت، وتستحق الراحة.¦Your day is complete. Well done, you deserve a rest.
+هل نرتّب يومك؟ بضعة أسئلة بسيطة، ويمكنك تخطّي أي سؤال.¦Shall we plan your day? A few simple questions, and you can skip any of them.
+لنرتّب يومي¦Plan my day
+تقدّم اليوم¦Today’s progress
+الجلسة التالية¦Next session
+التالي: استراحة¦Next: break
+فتح الجلسة¦Open session
+اكتملت خطة اليوم 🎉 وما تبقّى يتوزّع على الأيام القادمة.¦Today’s plan is complete 🎉 Anything left will move to upcoming days.
+لا توجد جلسة الآن. افتح الرئيسية لترتيب يومك.¦No session right now. Open Home to plan your day.
+خذ وقتك للراحة 🌿¦Take your time to rest 🌿
+المهمة: متابعة الاستماع من الدقيقة¦Task: continue listening from minute
+إذا انتهى الوقت ولم ينتهِ التسجيل، نتابع من المكان نفسه.¦If time runs out before the recording ends, we resume from the same spot.
+تُوقَف الجلسة مؤقتاً ويمكنك المتابعة بعدها.¦The session is paused so you can resume afterwards.
+التمديد متاح للاستراحة فقط¦Extending is for breaks only
+انتهى الوقت ✦¦Time’s up ✦
+أحسنت! يمكنك الآن تسجيل ما أنجزته في الجلسة.¦Well done! Log what you completed in this session.
+تسجيل الجلسة¦Log session
+انتهت الاستراحة. الخطوة التالية جاهزة.¦The break is over. The next step is ready.
+انتهت الجلسة¦Session complete
+كم دقيقة درست فعلياً؟¦How many minutes did you actually listen?
+هل فهمت ما درسته؟¦Did you understand this part?
+نعم، فهمت¦Yes, I understood
+فهمت جزءاً<¦Partly<
+أحتاج إلى مراجعة جزء¦I need to review a part
+أنهيت المهمة كاملة¦I finished the whole recording
+تم حفظ تقدّمك. أحسنت!¦Progress saved. Well done!
+إذا كانت ساعة الجهاز غير مضبوطة، عدّل الوقت هنا.¦If your device clock is off, adjust it here.
+لا تُحسب الجلسات الفائتة منجزة، ويُحتفظ بإنجازك الفعلي فقط.¦Missed sessions aren’t counted as done; only your real progress is kept.
+كم الساعة الآن؟¦What time is it now?
+ترتيب الباقي¦Reorganize
+لا بأس¦No worries
+التعب ليس فشلاً. ماذا تفضّل؟¦Being tired isn’t failing. What would you prefer?
+جلسات أقصر (10 دقائق)¦Shorter sessions (10 min)
+استراحة 10 دقائق¦10-minute break
+يكفي لليوم¦That’s enough for today
+تم تخفيف الجلسات¦Sessions lightened
+تقدّم المادة الحالية يبقى محفوظاً.¦Progress on the current subject stays saved.
+تم تغيير المادة¦Subject changed
+إنهاء اليوم؟¦End the day?
+ما لم يكتمل يُؤجَّل ليوم آخر، وكل ما أنجزته محفوظ.¦Anything unfinished moves to another day; everything you completed is saved.
+لا يوجد جدول لليوم بعد.¦No plan for today yet.
+ترتيب يومي¦Plan my day
+الوقت متأخر قليلاً. الأفضل الراحة ونتابع غداً 🌙¦It’s getting late. Rest, and we’ll continue tomorrow 🌙
+مرحباً ✦ كم الساعة الآن عندك؟ عدّلها إذا لم تكن مضبوطة.¦Hello ✦ What time is it for you now? Adjust it if it’s off.
+هل لديك دوام اليوم (جامعة أو مدرسة)؟¦Do you have classes today (university or school)?
+>نعم<¦>Yes<
+هل هناك التزامات أو مواعيد يجب مراعاتها؟ (غداء، موعد…)¦Any commitments or appointments to plan around? (lunch, appointment…)
++ إضافة¦+ Add
+تحقق من الوقت¦Check the time
+ما المواد التي تريد دراستها اليوم؟¦Which subjects do you want to study today?
+الرقم = تسجيلات لم تنتهِ. أضف التسجيلات من صفحة المواد.¦The number = unfinished recordings. Add recordings from the Subjects page.
+هل تعرف مدة هذه التسجيلات؟ إن لم تعرف، اختر «لا أعرف» ونتابع دون افتراض.¦Do you know how long these recordings are? If not, choose “I don’t know” and we’ll continue without assuming.
+لا أعرف المدة¦I don’t know the length
+مدة كل تسجيلاتك معروفة أو لا توجد تسجيلات. تابع.¦All your recordings have known lengths, or there are none. Continue.
+كيف طاقتك الآن؟¦How is your energy right now?
+جيدة¦Good
+متوسطة¦Medium
+متعبة¦Tired
+هل بدأت الدراسة اليوم؟ إن كان نعم، ماذا أنجزت؟¦Have you already studied today? If so, what did you complete?
+لم أدرس شيئاً بعد¦Haven’t studied yet
+إنشاء جدولي¦Create my plan
+اختر مادة واحدة على الأقل¦Choose at least one subject
+ستُحذف جميع مهامها أيضاً.¦All its tasks will be deleted too.
+المدة بالدقائق (اتركها فارغة إن لم تعرفها)¦Length in minutes (leave empty if unknown)
+كم دقيقة أنجزت؟¦Minutes completed
+لا توجد مواد بعد. ابدأ بإضافة أول مادة.¦No subjects yet. Start by adding your first subject.
+لا توجد بيانات بعد.¦No data yet.
+كل دقيقة تُحتسب، حتى لو لم ينتهِ كل شيء اليوم.¦Every minute counts, even if not everything got done today.
+تُحفظ البيانات تلقائياً على هذا المتصفح (وتُفقد إذا مُسحت بيانات المتصفح). صدّر نسخة احتياطية من وقت لآخر.¦Data is saved automatically in this browser (and lost if browser data is cleared). Export a backup now and then.
+⚠️ التخزين المحلي غير متاح هنا، فلن تُحفظ البيانات. استخدم التصدير لنسخ بياناتك.¦⚠️ Local storage isn’t available here, so data won’t be saved. Use Export to copy your data.
+placeholder="الصق نسخة محفوظة هنا للاستيراد"¦placeholder="Paste a saved backup here to import"
+مسح كل البيانات¦Reset everything
+يعتمد المؤقت على ساعة الجهاز فيبقى دقيقاً حتى لو غادرت الصفحة، لكن لا يوجد صوت أو إشعار والصفحة مغلقة؛ يظهر التنبيه عند فتحها.¦The timer follows your device clock, so it stays accurate even if you leave the page, but there’s no sound or notification while it’s closed; the alert appears when you reopen it.
+تم التصدير. انسخ النص واحفظه.¦Exported. Copy the text and save it.
+النص غير صالح¦Invalid text
+لا يمكن التراجع إلا بوجود نسخة مصدّرة.¦This can’t be undone unless you have an exported backup.
+تمام، جدول جديد من ¦OK, new plan from 
+الأحد¦Sunday
+الاثنين¦Monday
+الثلاثاء¦Tuesday
+الأربعاء¦Wednesday
+الخميس¦Thursday
+الجمعة¦Friday
+السبت¦Saturday
+</span>الجدول<¦</span>Plan<
+</span>الجلسة<¦</span>Session<
+الرئيسية¦Home
+المواد¦Subjects
+إنجازاتي¦Progress
+الإعدادات¦Settings
+عالية¦High
+متوسطة¦Medium
+منخفضة¦Low
+سهل¦Easy
+متوسط¦Medium
+صعب¦Hard
+لم أبدأ¦Not started
+قيد الدراسة¦In progress
+مكتمل¦Done
+استراحة طويلة¦Long break
+استراحة إضافية¦Extra break
+استراحة ☕¦Break ☕
+استراحة¦Break
+ · تسجيل ¦ · Recording 
+(من الدقيقة¦(from minute
+من الدقيقة¦from minute
+مهام: ¦Tasks: 
+مهام مكتملة¦Tasks completed
+تسجيلات¦Recordings
++ مهمة¦+ Task
+مهمة جديدة¦New task
+حذف المهمة¦Delete task
+رقم التسجيل¦Recording number
+موادي ومهامي¦My subjects & tasks
+تسجيل¦recording
+ جلسة · ¦ sessions · 
+ من ¦ of 
+ دقيقة¦ min
+ دقائق¦ min
+(المدة ¦(Length 
+ (المدة غير معروفة)¦ (length unknown)
+تقريباً ¦about 
+>ابدأ<¦>Start<
+إيقاف مؤقت¦Pause
+استئناف¦Resume
+أنهيت الجلسة¦Finished session
+أنهيت الاستراحة¦Finished break
+إعادة ضبط¦Reset
+بدأت الدراسة¦I started studying
+أريد استراحة¦I want a break
+أريد تمديد الاستراحة¦Extend break
+تأخرت عن الجدول¦I’m behind schedule
+تعبت ولا أستطيع التركيز¦I’m tired / can’t focus
+أريد تغيير المادة¦Change subject
+أريد إنهاء يوم الدراسة¦End study day
+أريد رؤية إنجازاتي¦See my progress
+كم دقيقة استراحة؟¦How long a break?
+>تمام<¦>OK<
+كم دقيقة؟¦How many minutes?
+>حفظ<¦>Save<
+>إغلاق<¦>Close<
+>تثبيت<¦>Confirm<
+نرتّب من جديد؟¦Reorganize?
+أي مادة؟¦Which subject?
+إنهاء اليوم؟¦End the day?
+إنهاء اليوم¦End day
+جدول اليوم¦Today’s plan
+إعادة ترتيب من الوقت الحالي¦Reorganize from current time
+إعداد يوم جديد¦Set up a new day
+إعداد اليوم¦Day setup
+سؤال ¦Question 
+>لا<¦>No<
+>من<¦>From<
+>إلى<¦>To<
+placeholder="الاسم"¦placeholder="Name"
+>حذف<¦>Delete<
+>التالي<¦>Next<
+>تخطّي<¦>Skip<
+>رجوع<¦>Back<
+أقل من 30 دقيقة¦Under 30 min
+من 30 إلى 45¦30 to 45
+من 45 إلى 60¦45 to 60
+أكثر من ساعة¦Over an hour
+مادة جديدة¦New subject
+placeholder="اسم المادة"¦placeholder="Subject name"
+موعد الامتحان (اختياري)¦Exam date (optional)
+الأولوية¦Priority
+تعديل المادة¦Edit subject
+حذف المادة؟¦Delete subject?
+حذف المادة¦Delete subject
+الحالة¦Status
+الصعوبة¦Difficulty
+أولوية ¦Priority: 
+ · مكتمل ¦ · Done 
+الإنجاز الفعلي¦Actual progress
+المدة؟¦Length?
+>تعديل<¦>Edit<
+>اليوم<¦>Today<
+المجموع¦Total
+آخر 7 أيام (دقائق)¦Last 7 days (minutes)
+حسب المادة¦By subject
+مدة الدراسة¦Study length
+الاستراحة القصيرة¦Short break
+الاستراحة الطويلة¦Long break
+استراحة طويلة بعد¦Long break after
+جلستين¦2 sessions
+3 جلسات¦3 sessions
+4 جلسات¦4 sessions
+نظام الوقت¦Time format
+24 ساعة¦24-hour
+12 ساعة¦12-hour
+المظهر¦Theme
+>تلقائي<¦>Auto<
+>فاتح<¦>Light<
+>داكن<¦>Dark<
+اللغة¦Language
+آخر وقت للدراسة¦Latest study time
+حفظ البيانات¦Data storage
+>تصدير<¦>Export<
+>استيراد<¦>Import<
+عن المؤقت¦About the timer
+تم الاستيراد ✓¦Imported ✓
+مسح كل البيانات؟¦Reset all data?
+مسح كل البيانات¦Reset everything
+>مسح<¦>Reset<
+ يوماً¦ days
+ · الامتحان بعد ¦ · Exam in 
+رُحِّل ¦Moved 
+ مهمة/مهام إلى الأيام القادمة لعدم كفاية وقت اليوم.¦ task(s) to upcoming days: not enough time today.`;const TR=TRS.split('\n').map(l=>l.split('¦')).sort((a,b)=>b[0].length-a[0].length);
+function tl(h){if(S.set.lang!='en')return h;for(const[a,e] of TR)h=h.split(a).join(e);return h.replace(/(\d)\s?د(?![\u0600-\u06FF])/g,'$1 min')}
+const NAV0=$('nav').innerHTML;
+function theme(){const r=document.documentElement,en=S.set.lang=='en';S.set.theme?r.setAttribute('data-theme',S.set.theme):r.removeAttribute('data-theme');r.lang=en?'en':'ar';r.dir=en?'ltr':'rtl';$('nav').innerHTML=tl(NAV0);{const m=document.querySelector('meta[name=theme-color]'),dk=S.set.theme=='dark'||(!S.set.theme&&matchMedia('(prefers-color-scheme: dark)').matches);if(m)m.content=dk?'#17264B':'#F8F5ED'}document.title=en?'Study Buddy':'Study Buddy — رفيق الدراسة'}
+const V={};
+function render(){save();$('#app').innerHTML=tl((V[S.view]||V.home)());$('#clk').textContent=fmt(now());document.querySelectorAll('nav button').forEach(n=>n.classList.toggle('on',n.dataset.a=='go:'+S.view))}
+A.go=x=>{S.view=x;if(x=='setup')initW();render();scrollTo(0,0)};
+/* home */
+V.home0=()=>{const D=S.day,b=cur(),ad=LS().length?'<button class="btn g" data-a="addS">+ إضافة مادة</button>':'';
+let h=card(`<div style="text-align:center"><div class="big">${fmt(now())}</div><div class="mut">${DN[D?D.dow:new Date().getDay()]}</div><button class="chip" data-a="prof">◍ ${esc((REG.find(p=>p.id==CP)||{}).name)}</button></div>`);
+if(!LS().length)return h+card('<p>أهلاً بك ✦ خطّط لما تريد دراسته، واختر مدة التركيز، وخذ استراحاتك، وتابع تقدّمك. ابدأ بمادة واحدة، ويمكنك إضافة غيرها في أي وقت.</p><button class="btn" data-a="addS">+ إضافة مادة</button>');
+if(!D||D.ended)return h+card(`<p>${D?'انتهى يومك. أحسنت، وتستحق الراحة. يمكنك إضافة مهمة لليوم متى شئت.':'جاهز للبدء؟ ابدأ فوراً بما لديك، أو رتّب يومك بضعة أسئلة بسيطة.'}</p><button class="btn" data-a="quick">ابدأ الآن</button><button class="btn g" data-a="go:setup">ترتيب مفصّل</button>`)+ad;
+const st=D.blocks.filter(x=>x.type=='study'),dn=st.filter(x=>x.st=='done').length,tot=st.filter(x=>x.st!='skip').length,mn=S.log.filter(l=>l.d==iso()).reduce((a,l)=>a+l.m,0);
+h+=card(`<div class="rw"><b>تقدّم اليوم</b><span class="mut">${dn} من ${tot} جلسة · ${mn} دقيقة</span></div>${bar(tot?Math.round(100*dn/tot):0)}`)+lateBn();
+if(b)h+=hero(`<span class="tag">${b.type=='study'?'الجلسة التالية':'التالي: استراحة'}</span><h3>${lab(b)}</h3><div class="mut">${fmt(b.s)}–${fmt(b.e)}</div><button class="btn" data-a="go:session">فتح الجلسة</button>`);
+else h+=card(D.blocks.some(x=>x.st=='done')?'<p>اكتملت خطة اليوم 🎉 يمكنك مواصلة الدراسة من صفحة المواد أو إضافة مادة أخرى.</p><button class="btn" data-a="go:subs">المواد</button>':'<p>لا توجد جلسات لليوم بعد. يمكنك اختيار مادة وبدئها من صفحة المواد.</p><button class="btn" data-a="go:subs">المواد</button>');
+return h+ad};
+A.quick=()=>{LS().forEach(x=>gen(x.id));S.recs.forEach(r=>r.later=0);S.day={date:today(),dow:new Date().getDay(),sids:LS().map(x=>x.id),en:'mid',fixed:[],blocks:[],left:[]};S.timer=S.xb=null;replan(now());S.view=cur()?'session':'plan';render()};
+V.home=()=>V.home0()+hint();
+let dip=null;addEventListener('beforeinstallprompt',e=>{e.preventDefault();dip=e;if(S.view=='home')render()});
+const standalone=()=>matchMedia('(display-mode: standalone)').matches||navigator.standalone;
+function hint(){try{if(standalone()||top!==window||!/^https?:/.test(location.protocol)||localStorage.getItem('sb_hint'))return''}catch(e){return''}return card(`<b>تثبيت Study Buddy</b><p class="mut">${dip?'يمكنك تثبيت التطبيق لفتحه بملء الشاشة بدون شريط المتصفح.':'لفتحه بملء الشاشة: من قائمة المتصفح (⋮) اختر «إضافة إلى الشاشة الرئيسية» أو «تثبيت التطبيق».'}</p><div class="rw">${dip?'<button class="btn s" data-a="inst">تثبيت التطبيق</button>':''}<button class="btn s g" data-a="hh">لاحقاً</button></div>`)}
+A.inst=()=>{if(dip){dip.prompt();dip=null}render()};A.hh=()=>{try{localStorage.setItem('sb_hint','1')}catch(e){}render()};
+const saveReg=()=>{try{localStorage.setItem('sb_reg',JSON.stringify(REG))}catch(e){}};
+A.prof=()=>modal('مساحتي الشخصية','<p class="mut">لكل مساحة مواد ومهام وسجل وإعدادات منفصلة تماماً على هذا المتصفح.</p>'+REG.map(p=>`<div class="rw"><b>${esc(p.name)}${p.id==CP?' ✓':''}</b>${p.id==CP?'':`<span><button class="btn s" data-a="swp:${p.id}">فتح</button><button class="btn s g" data-a="dlp:${p.id}">حذف</button></span>`}</div>`).join('')+'<input id="p_n" placeholder="اسم مساحة جديدة"><button class="btn g" data-a="newp">+ مساحة جديدة</button>');
+A.swp=id=>{save();try{localStorage.setItem('sb_cur',id)}catch(e){}location.reload()};
+A.newp=()=>{const n=v('p_n').trim();if(!n)return toast('أدخل اسم المساحة');const id=uid();REG.push({id,name:n});saveReg();A.swp(id)};
+A.dlp=id=>modal('حذف المساحة؟','<p>ستُحذف كل بياناتها نهائياً.</p>','حذف',()=>{REG=REG.filter(p=>p.id!=id);saveReg();try{localStorage.removeItem(keyOf(id))}catch(e){}A.prof()});
+A.startS=id=>{gen(id);const rs=S.recs.filter(r=>r.sid==id&&r.status!='done');
+const c=cur(),cr=c&&rec(c.rid);if(S.timer&&cr&&cr.sid==id&&c.id==S.timer.bid){S.view='session';return render()}
+guard(()=>{rs.forEach(r=>r.later=0);if(!S.day)S.day={date:today(),dow:new Date().getDay(),sids:[],en:'mid',fixed:[],blocks:[],left:[]};const D=S.day;if(!D.sids.includes(id))D.sids.push(id);D.pin=id;D.ended=false;if(D.blocks.some(b=>b.st=='done'))D.extra=(D.extra||0)+2;S.xb=null;replan(now());A.start()})};
+/* session */
+V.session=()=>{const D=S.day,b=cur(),x=S.xb;if(!D||(!b&&!x))return card('<p>لا توجد جلسة الآن. افتح الرئيسية لترتيب يومك.</p><button class="btn" data-a="go:home">الرئيسية</button>');
+const t=T(),isS=!x&&b.type=='study',r=isS&&rec(b.rid),st=t&&(x||t.bid==b.id),sh=x?x.left:st?t.left:len(b)*60;
+let h=lateBn()+hero(`<span class="tag">${x?'استراحة إضافية':isS?'دراسة':b.type=='long'?'استراحة طويلة':b.type=='break'?'استراحة':''}</span><h3>${x?'خذ وقتك للراحة 🌿':lab(b)}</h3>${isS?`<p>${r.notes?esc(r.notes)+'<br>':''}${tmed(r)?`متابعة من الدقيقة <b>${from(b)}</b>. `:''}${r.dur?`(المدة التقديرية ${r.dur} د — أنجزت ${r.done} د)`:`(أنجزت ${r.done} د)`}. إذا انتهى الوقت ولم تنتهِ المهمة نتابع لاحقاً من حيث وصلت.</p>`:''}<div class="tm" id="tm">${mmss(sh)}</div>`
++(!st?'<button class="btn" data-a="start">ابدأ</button>':t.run?'<button class="btn g" data-a="pause">إيقاف مؤقت</button>':t.left>0?'<button class="btn" data-a="resume">استئناف</button>':'')
++`<div class="rw"><button class="btn s" data-a="fin">${isS?'أنهيت الجلسة':'أنهيت الاستراحة'}</button><button class="btn s g" data-a="reset">إعادة ضبط</button>${!isS?'<button class="btn s g" data-a="ext">+5 د</button>':''}</div>`);
+const Q=[['start','بدأت الدراسة'],['fin','أنهيت الجلسة'],['brk','أريد استراحة'],['ext','أريد تمديد الاستراحة'],['late','تأخرت عن الجدول'],['tired','تعبت ولا أستطيع التركيز'],['sw','أريد تغيير المادة'],['endDay','أريد إنهاء يوم الدراسة'],['go:stats','أريد رؤية إنجازاتي'],['addS','+ إضافة مادة']];
+return h+`<div class="grid">${Q.map(q=>`<button class="chip" data-a="${q[0]}">${q[1]}</button>`).join('')}</div>`};
+/* timer */
+A.start=()=>{if(S.xb){return A.resume()}let b=cur();if(!b)return;
+if(!S.timer||S.timer.bid!=b.id){if(b.type=='study'&&b.s+3<now()){replan(now());b=cur();if(!b)return render();toast('رتّبت الباقي من الوقت الحالي')}S.timer={bid:b.id,left:len(b)*60,run:false}}
+S.timer.run=true;S.timer.end=Date.now()+S.timer.left*1000;S.view='session';render()};
+A.pause=()=>{const t=T();t.left=Math.max(0,Math.ceil((t.end-Date.now())/1000));t.run=false;render()};
+A.resume=()=>{const t=T();if(!t)return A.start();t.run=true;t.end=Date.now()+t.left*1000;S.view='session';render()};
+A.reset=()=>{const t=T(),b=cur();if(!t)return;t.left=(t.x?t.len:len(b))*60;t.run=false;render()};
+A.ext=()=>{const t=T(),b=cur();if(!t||!(t.x||b.type!='study'))return toast('التمديد متاح للاستراحة فقط');t.left+=300;if(t.run)t.end+=3e5;if(t.x)t.len+=5;render()};
+A.brk=()=>modal('كم دقيقة استراحة؟','<div class="grid">'+[5,10,15,20].map(m=>`<button class="chip" data-a="xb:${m}">${m} دقيقة</button>`).join('')+'</div><p class="mut">تُوقَف الجلسة مؤقتاً ويمكنك المتابعة بعدها.</p>');
+A.xb=m=>{A.mx();const t=S.timer;if(t&&t.run)A.pause();S.xb={x:1,len:+m,left:m*60,run:true,end:Date.now()+m*6e4};S.view='session';render()};
+A.endBrk=()=>{if(S.xb)S.xb=null;else{const b=cur();if(b&&b.type!='study')b.st='done';S.timer=null}render()};
+setInterval(()=>{const t=T();$('#clk').textContent=fmt(now());if(!t||!t.run)return;const l=Math.ceil((t.end-Date.now())/1000);
+if(l<=0){t.left=0;t.run=false;try{navigator.vibrate([300,150,300])}catch(e){}render();const st=!S.xb&&cur()&&cur().type=='study';modal('انتهى الوقت ✦',st?'<p>أحسنت! يمكنك الآن تسجيل ما أنجزته في الجلسة.</p>':'<p>انتهت الاستراحة. الخطوة التالية جاهزة.</p>',st?'تسجيل الجلسة':'تمام',()=>{st?A.fin():A.endBrk()})}
+else{t.left=l;const e=$('#tm');if(e)e.textContent=mmss(l)}},500);
+function guard(fn){const t=S.timer,b=cur();if(t&&b&&b.type=='study'&&t.bid==b.id&&b.s!=null&&len(b)*60-t.left>=60){after=fn;A.fin()}else fn()}
+A.fin=()=>{if(S.xb)return A.endBrk();const b=cur();if(!b)return;if(b.type!='study')return A.endBrk();
+const r=rec(b.rid),t=S.timer,pl=len(b),el=t&&t.bid==b.id?(t.left==0?pl:Math.max(0,Math.round((pl*60-t.left)/60))):0;
+modal('انتهت الجلسة',`<label>كم دقيقة استمعت فعلياً؟</label><input type="number" id="f_m" min="0" value="${el}"><label>هل فهمت الجزء؟</label><select id="f_u"><option value="yes">نعم، فهمت</option><option value="part">فهمت جزءاً</option><option value="no">أحتاج إلى مراجعة جزء</option></select><label style="display:flex;align-items:center;margin:10px 0"><input type="checkbox" id="f_c" ${r.dur&&r.done+el>=r.dur?'checked':''}>أنهيت التسجيل كاملاً</label>`,'حفظ',()=>{
+const m=Math.max(0,+v('f_m')||0),u=v('f_u');r.done+=m;if($('#f_c').checked){r.status='done';r.dur=Math.max(r.dur||0,r.done);r.est=0}else if(r.status!='done')r.status=r.done>0?'doing':r.status;r.rev=u=='no'?1:u=='yes'?0:r.rev;
+if(m>0)S.log.push({d:iso(),rid:r.id,sid:r.sid,m,u});b.st=m>0?'done':'skip';b.act=m;S.timer=null;const f=after;after=null;if(f)f();else toast('تم حفظ تقدّمك. أحسنت!');render()})};
+/* reschedule */
+A.clock=()=>modal('كم الساعة الآن؟','<p class="mut">إذا كانت ساعة الجهاز غير مضبوطة، عدّل الوقت هنا.</p>'+inp('c_t',now()),'تثبيت',()=>{const m=parse(v('c_t'));if(m==null)return false;setNow(m);render()});
+A.late=()=>modal('نرتّب من جديد؟','<p>لا تُحسب الجلسات الفائتة منجزة، ويُحتفظ بإنجازك الفعلي فقط. كم الساعة الآن؟</p>'+inp('c_t',now()),'ترتيب الباقي',()=>{const m=parse(v('c_t'));if(m==null)return false;setNow(m);guard(()=>{replan(now());toast('تمام، جدول جديد من '+fmt(now())+'');render()})});
+A.tired=()=>modal('لا بأس','<p>التعب ليس فشلاً. ماذا تفضّل؟</p><button class="btn g" data-a="tr:b">استراحة 10 دقائق</button><button class="btn g" data-a="tr:s">جلسات أقصر (10 دقائق)</button><button class="btn g" data-a="tr:e">يكفي لليوم</button>');
+A.tr=k=>{A.mx();if(k=='b')return A.xb(10);if(k=='e')return A.endDay();guard(()=>{replan(now(),'tired');toast('تم تخفيف الجلسات');render()})};
+A.sw=()=>{if(!S.day)return;modal('أي مادة؟','<div>'+S.day.sids.map(id=>`<button class="chip" data-a="swTo:${id}">${esc(sub(id).name)}</button>`).join('')+'</div><p class="mut">تقدّم المادة الحالية يبقى محفوظاً.</p>')};
+A.swTo=id=>{A.mx();guard(()=>{S.day.pin=id;replan(now());toast('تم تغيير المادة');render()})};
+A.endDay=()=>modal('إنهاء اليوم؟','<p>ما لم يكتمل يُؤجَّل ليوم آخر، وكل ما أنجزته محفوظ.</p>','إنهاء اليوم',()=>{A.mx();guard(()=>{const D=S.day;D.blocks=D.blocks.filter(b=>b.st!='todo');D.ended=true;S.timer=S.xb=null;S.view='stats';render()})});
+/* plan */
+V.plan=()=>{const D=S.day;if(!D)return card('<p>لا يوجد جدول لليوم بعد.</p><button class="btn" data-a="go:setup">ترتيب يومي</button>');
+const all=D.blocks.concat(D.fixed.map(f=>({type:'fixed',s:f.s,e:f.e,l:f.l,st:'x'}))).sort((a,b)=>a.s-b.s);
+return `<h2>جدول اليوم</h2>`+lateBn()+(all.length?all.map(b=>`<div class="r2 ${b.type} ${b.st}" ${b.type=='study'&&b.st=='todo'?'data-a="go:session"':''}><b>${fmt(b.s)}–${fmt(b.e)}</b><span>${lab(b)}</span><i>${b.st=='done'?'✓':b.st=='skip'?'—':''}</i></div>`).join(''):card(queue(D.sids).length?'<p>الوقت متأخر قليلاً. الأفضل الراحة ونتابع غداً 🌙</p>':'<p>لا توجد جلسات لليوم بعد. يمكنك اختيار مادة وبدئها من صفحة المواد.</p><button class="btn" data-a="go:subs">المواد</button>'))
++(D.left.length?`<p class="mut">رُحِّل ${D.left.length} مهمة/مهام إلى الأيام القادمة لعدم كفاية وقت اليوم.</p>`:'')+`<button class="btn g" data-a="late">إعادة ترتيب من الوقت الحالي</button><button class="btn g" data-a="addS">+ إضافة مادة</button><button class="btn g" data-a="go:setup">إعداد يوم جديد</button>`};
+/* setup wizard */
+const initW=()=>{W={st:0,t:now(),ts:0,dow:new Date().getDay(),uni:0,us:540,ue:900,fx:[],sids:[],en:'mid',dr:{}}};
+const dsel=r=>`<select id="d_${r.id}"><option value="">لا أعرف المدة</option><option value="25">أقل من 30 دقيقة</option><option value="40">من 30 إلى 45</option><option value="55">من 45 إلى 60</option><option value="75">أكثر من ساعة</option></select>`;
+V.setup=()=>{if(!W)initW();
+const q=[
+['مرحباً ✦ كم الساعة الآن عندك؟ عدّلها إذا لم تكن مضبوطة.',inp('w_t',W.t)+`<select id="w_d">${DN.map((n,i)=>`<option value="${i}" ${i==W.dow?'selected':''}>${n}</option>`).join('')}</select>`],
+['هل لديك دوام اليوم (جامعة أو مدرسة)؟',`<div class="rw"><button class="btn ${W.uni?'':'g'}" style="flex:1" data-a="uni:1">نعم</button><button class="btn ${W.uni?'g':''}" style="flex:1" data-a="uni:0">لا</button></div>${W.uni?`<label>من</label>${inp('w_us',W.us)}<label>إلى</label>${inp('w_ue',W.ue)}`:''}`],
+['هل هناك التزامات أو مواعيد يجب مراعاتها؟ (غداء، موعد…)',W.fx.map((f,i)=>`<div class="rw"><span>${esc(f.l)} ${fmt(f.s)}–${fmt(f.e)}</span><button class="btn s g" data-a="rmF:${i}">حذف</button></div>`).join('')+`<input id="w_fl" placeholder="الاسم">${inp('w_fs',720)}${inp('w_fe',780)}<button class="btn g" data-a="addF">+ إضافة</button>`],
+['ما المواد التي تريد دراستها اليوم؟ يمكنك البدء بمادة واحدة وإضافة غيرها في أي وقت.',LS().map(s=>`<button class="chip ${W.sids.includes(s.id)?'on':''}" data-a="tg:${s.id}">${esc(s.name)} (${S.recs.filter(r=>r.sid==s.id&&r.status!='done').length})</button>`).join('')+'<button class="btn g" data-a="addS:w">+ مادة جديدة</button>'],
+['كيف طاقتك الآن؟','<div class="grid">'+[['good','جيدة'],['mid','متوسطة'],['tired','متعبة']].map(e=>`<button class="chip ${W.en==e[0]?'on':''}" data-a="en:${e[0]}">${e[1]}</button>`).join('')+'</div>'],
+['هل بدأت الدراسة اليوم؟ إن كان نعم، ماذا أنجزت؟',`<select id="w_r"><option value="">لم أدرس شيئاً بعد</option>${S.recs.filter(r=>W.sids.includes(r.sid)&&r.status!='done').map(r=>`<option value="${r.id}">${rname(r)}</option>`).join('')}</select><input type="number" id="w_m" min="0" placeholder="كم دقيقة؟">`]];
+const l=W.st==q.length-1;
+return `<h2>إعداد اليوم</h2><div class="mut">سؤال ${W.st+1} من ${q.length}</div><div class="bub">${q[W.st][0]}</div>${q[W.st][1]}<button class="btn" data-a="${l?'mk':'nx'}">${l?'إنشاء جدولي':'التالي'}</button><div class="rw"><button class="btn g" data-a="${l?'mk':'sk'}">تخطّي</button>${W.st?'<button class="btn g" data-a="bk">رجوع</button>':''}</div>`};
+function col(){const g=id=>document.getElementById(id);if(W.st==0&&g('w_t')){W.t=parse(v('w_t'));W.ts=1;W.dow=+v('w_d')}
+if(W.st==1&&W.uni&&g('w_us')){W.us=parse(v('w_us'));W.ue=parse(v('w_ue'))}
+if(W.st==5&&g('w_m')&&+v('w_m')>0&&v('w_r')){const r=rec(v('w_r')),m=+v('w_m');r.done+=m;r.status='doing';S.log.push({d:iso(),rid:r.id,sid:r.sid,m,u:'yes'})}}
+A.uni=x=>{W.uni=+x;render()};A.tg=id=>{const i=W.sids.indexOf(id);i<0?W.sids.push(id):W.sids.splice(i,1);render()};A.en=x=>{W.en=x;render()};A.rmF=i=>{W.fx.splice(i,1);render()};
+A.addF=()=>{const s=parse(v('w_fs')),e=parse(v('w_fe'));if(s==null||e==null||e<=s)return toast('تحقق من الوقت');W.fx.push({l:v('w_fl').trim()||'التزام',s,e});render()};
+A.nx=()=>{col();W.st++;render()};A.sk=()=>{W.st++;render()};A.bk=()=>{W.st--;render()};
+A.mk=()=>{col();if(!W.sids.length)W.sids=LS().map(x=>x.id);W.sids.forEach(x=>gen(x));S.recs.forEach(r=>r.later=0);
+if(W.ts)setNow(W.t);const fx=W.fx.slice();if(W.uni)fx.push({l:'جامعة',s:W.us,e:W.ue});fx.sort((a,b)=>a.s-b.s);
+S.day={date:today(),dow:W.dow,sids:W.sids,en:W.en,fixed:fx,blocks:[],left:[]};S.timer=S.xb=null;replan(now());S.view='plan';render()};
+/* subjects */
+const sf=s=>`<input id="s_n" placeholder="اسم المادة" value="${esc(s.name||'')}"><label>موعد الامتحان (اختياري)</label><input type="date" id="s_e" value="${s.exam||''}"><label>الأولوية</label><select id="s_p">${[1,2,3].map(i=>`<option value="${i}" ${(s.prio||2)==i?'selected':''}>${PR[i]}</option>`).join('')}</select>${nt()}${s.id?`<button class="btn g" data-a="delS:${s.id}">حذف المادة</button>`:''}`;
+const getS=s=>{const n=v('s_n').trim();if(!n)return false;Object.assign(s,{name:n,exam:v('s_e'),prio:+v('s_p')})};
+const when=e=>S.day?`<label>متى؟</label><select id="w_when">${e?'<option value="">بدون تغيير</option>':''}<option value="t">اليوم</option><option value="l">لاحقاً</option></select>`:'',gw=()=>{const g=document.getElementById('w_when');return g?g.value:''};
+const nt=()=>`<details><summary>+ إضافة مهمة (اختياري)</summary><div class="bub"><b>ما هي «المهمة»؟</b><br>جزء محدد تريد دراسته من المادة، مثل «الفصل 3» أو «تمارين المجموعة 2» أو «مراجعة المحاضرة 5». تحدّد لها مدة تقديرية اختيارية ويوزّع التطبيق جلسات التركيز عليها. لا حاجة لإضافة مهام: إن تركتها فارغة تُنشأ جلسات «دراسة عامة» للمادة.</div><label>مهمة (اختياري)</label><input id="t_t" placeholder="عنوان المهمة"><input type="number" id="t_d" min="1" placeholder="المدة التقديرية بالدقائق"><label>طريقة الدراسة (اختياري)</label><select id="t_m">${MT.map(m=>`<option value="${m[0]}">${m[1]}</option>`).join('')}</select>${when()}</details>`;
+function newTask(sid){const t=v('t_t').trim();if(!t)return null;const r={id:uid(),sid,num:nextNum(sid),title:t,dur:+v('t_d')||null,done:0,status:'todo',method:v('t_m'),prio:0};S.recs.push(r);return r}
+function gen(sid){if(S.recs.some(r=>r.sid==sid&&r.status!='done'))return;S.recs.push({id:uid(),sid,num:nextNum(sid),title:'دراسة عامة',dur:null,done:0,status:'todo',method:'',prio:0})}
+function place(sid,w,r){const D=S.day;if(!D||!w)return;if(w=='l'){if(r)r.later=1;return}if(!D.sids.includes(sid))D.sids.push(sid);if(r)r.later=0;gen(sid);D.ended=false;D.extra=(D.extra||0)+2;replan(now(),0,1)}
+const nextNum=sid=>Math.max(0,...S.recs.filter(r=>r.sid==sid).map(r=>r.num||0))+1;
+A.addS=w=>modal('مادة جديدة',sf({}),'حفظ',()=>{const s={id:uid()};if(getS(s)===false)return false;S.subs.push(s);if(w=='w'&&W)W.sids.push(s.id);const r=newTask(s.id);place(s.id,gw(),r);render()});
+A.editS=id=>{const s=sub(id);modal('تعديل المادة',sf(s),'حفظ',()=>{if(getS(s)===false)return false;const r=newTask(id);if(r)place(id,gw(),r);render()})};
+A.delS=id=>modal('إزالة المادة؟','<p>ستُزال المادة من قائمتك وخطتك، وتبقى إنجازاتك وسجل دراستك محفوظين في الإحصائيات.</p>','إزالة',()=>{{const c=cur(),cr=c&&rec(c.rid);if(cr&&cr.sid==id)S.timer=null}const used=S.log.some(l=>l.sid==id)||S.recs.some(r=>r.sid==id&&(r.status=='done'||r.done>0));if(used)sub(id).arch=1;else{S.subs=S.subs.filter(x=>x.id!=id);S.recs=S.recs.filter(r=>r.sid!=id)}if(S.day){S.day.sids=S.day.sids.filter(x=>x!=id);replan(now(),0,1)}render()});
+const MT=[['','غير محدد'],['read','قراءة'],['video','فيديو'],['audio','صوت'],['ex','تمارين'],['rev','مراجعة'],['live','محاضرة مباشرة'],['other','أخرى']];
+const rf=r=>`<label>المادة</label><select id="r_sid">${LS().map(s=>`<option value="${s.id}" ${s.id==r.sid?'selected':''}>${esc(s.name)}</option>`).join('')}</select><label>عنوان المهمة</label><input id="r_t" value="${esc(r.title||'')}" placeholder="مثال: الفصل 3 / تمارين المجموعة 2"><label>المدة التقديرية بالدقائق (اختياري)</label><input type="number" id="r_d" min="1" value="${r.dur||''}"><label>الأولوية (اختياري)</label><select id="r_p"><option value="0">—</option>${[1,2,3].map(i=>`<option value="${i}" ${r.prio==i?'selected':''}>${PR[i]}</option>`).join('')}</select><label>الموعد النهائي (اختياري)</label><input type="date" id="r_dl" value="${r.dl||''}"><label>طريقة الدراسة (اختياري)</label><select id="r_mt">${MT.map(m=>`<option value="${m[0]}" ${(r.method||'')==m[0]?'selected':''}>${m[1]}</option>`).join('')}</select><label>ملاحظات (اختياري)</label><input id="r_n" value="${esc(r.notes||'')}">${r.id?`<label>كم دقيقة أنجزت؟</label><input type="number" id="r_m" value="${r.done||0}"><label>الحالة</label><select id="r_s">${Object.keys(STL).map(k=>`<option value="${k}" ${r.status==k?'selected':''}>${STL[k]}</option>`).join('')}</select><button class="btn g" data-a="delR:${r.id}">حذف المهمة</button>`:''}${when(!!r.id)}`;
+const getR=r=>{const t=v('r_t').trim();if(!t){toast('أدخل عنوان المهمة');return false}Object.assign(r,{sid:v('r_sid'),title:t,dur:+v('r_d')||null,est:0,prio:+v('r_p')||0,dl:v('r_dl'),method:v('r_mt'),notes:v('r_n').trim()});if(document.getElementById('r_m')){r.done=Math.max(0,+v('r_m')||0);r.status=v('r_s')}};
+A.addR=sid=>{if(!S.subs.length)return A.addS();modal('مهمة جديدة',rf({sid:sid||S.subs[0].id}),'حفظ',()=>{const r={id:uid(),done:0,status:'todo'};if(getR(r)===false)return false;r.num=nextNum(r.sid);S.recs.push(r);place(r.sid,gw(),r);render()})};
+A.editR=id=>{const r=rec(id);modal(rname(r),rf(r),'حفظ',()=>{if(getR(r)===false)return false;const w=gw();w?place(r.sid,w,r):S.day&&replan(now(),0,1);render()})};
+A.delR=id=>{const c=cur();if(c&&c.rid==id)S.timer=null;S.recs=S.recs.filter(r=>r.id!=id);if(S.day)replan(now(),0,1);A.mx();render()};
+V.subs=()=>`<h2>موادي ومهامي</h2><button class="btn" data-a="addS">+ مادة جديدة</button>`+(LS().map(s=>{const rs=S.recs.filter(r=>r.sid==s.id),d=rs.filter(r=>r.status=='done').length,g=rs.filter(r=>r.status=='doing').length,e=dl(s.exam);
+return card(`<div class="rw"><b>${esc(s.name)}</b><span class="tag">أولوية ${PR[s.prio||2]}</span><button class="x" data-a="delS:${s.id}" aria-label="إزالة المادة">✕</button></div><div class="mut">مهام: ${rs.length} · مكتمل ${d} · قيد الدراسة ${g} · لم أبدأ ${rs.length-d-g}${e!=null?` · الامتحان بعد ${e} يوماً`:''}</div>${bar(pct(rs))}<div class="mut">الإنجاز الفعلي ${pct(rs)}%</div><div>${rs.map(r=>`<button class="chip" data-a="editR:${r.id}">${esc(r.title||('مهمة '+r.num))} · ${r.dur?r.dur+'د':'—'} · ${rp(r)}${r.rev?' ↺':''}${r.later?' ⏳':''}</button>`).join('')}</div><button class="btn s" data-a="startS:${s.id}">بدء المادة</button><button class="btn s g" data-a="editS:${s.id}">تعديل</button>`)}).join('')||card('<p>لا توجد مواد بعد. ابدأ بإضافة أول مادة.</p>'));
+/* stats */
+V.stats=()=>{const sum=a=>a.reduce((x,l)=>x+l.m,0),td=S.log.filter(l=>l.d==iso()),days=[6,5,4,3,2,1,0].map(i=>({i,m:sum(S.log.filter(l=>l.d==iso(-i)))})),mx=Math.max(1,...days.map(d=>d.m)),dn=S.recs.filter(r=>r.status=='done').length;
+return `<h2>إنجازاتي</h2>`+card(`<div class="rw"><span>اليوم</span><b>${sum(td)} دقيقة</b></div><div class="rw"><span>المجموع</span><b>${sum(S.log)} دقيقة</b></div><div class="rw"><span>مهام مكتملة</span><b>${dn} من ${S.recs.length}</b></div>`)
++card(`<b>آخر 7 أيام (دقائق)</b><div class="wk">${days.map(d=>`<div><i style="height:${Math.round(70*d.m/mx)}px"></i>${d.m}</div>`).join('')}</div>`)
++card('<b>حسب المادة</b>'+(S.subs.map(s=>`<div class="rw"><span>${esc(s.name)}${s.arch?' (مؤرشفة)':''}</span><span class="mut">${sum(S.log.filter(l=>l.sid==s.id))} د · ${pct(S.recs.filter(r=>r.sid==s.id))}%</span></div>`).join('')||'<p class="mut">لا توجد بيانات بعد.</p>'))+'<p class="mut">كل دقيقة تُحتسب، حتى لو لم ينتهِ كل شيء اليوم.</p>'};
+/* settings */
+const sel=(k,o,u)=>`<label>${o[0]}</label><select data-set="${k}">${o[1].map(x=>`<option value="${x[0]}" ${S.set[k]==x[0]?'selected':''}>${x[1]}</option>`).join('')}</select>`,rng=(a,u)=>a.map(x=>[x,x+' '+u]);
+V.set=()=>`<h2>الإعدادات</h2>`+card(`<b>المساحة الشخصية: ${esc((REG.find(p=>p.id==CP)||{}).name)}</b><p class="mut">لكل مساحة مواد ومهام وسجل وإعدادات خاصة بها. بياناتك محفوظة على هذا المتصفح فقط، ولا تظهر على أجهزة أو متصفحات أخرى، وهي غير محمية بكلمة سر.</p><button class="btn g" data-a="prof">تبديل أو إدارة المساحات</button>`)+card(sel('study',['مدة الدراسة',rng([10,15,20,25],'دقيقة')])+sel('brk',['الاستراحة القصيرة',rng([5,10],'دقائق')])+sel('long',['الاستراحة الطويلة',rng([15,20,30],'دقيقة')])+sel('every',['استراحة طويلة بعد',[[2,'جلستين'],[3,'3 جلسات'],[4,'4 جلسات']]])+sel('fmt',['نظام الوقت',[[24,'24 ساعة'],[12,'12 ساعة']]])+sel('theme',['المظهر',[['','تلقائي'],['light','فاتح'],['dark','داكن']]])+sel('lang',['اللغة',[['ar','العربية'],['en','English']]])+`<label>آخر وقت للدراسة</label><input type="time" data-set="end" value="${tv(S.set.end)}">`)
++card(`<b>حفظ البيانات</b><p class="mut">${saveOK?'تُحفظ البيانات تلقائياً على هذا المتصفح (وتُفقد إذا مُسحت بيانات المتصفح). صدّر نسخة احتياطية من وقت لآخر.':'⚠️ التخزين المحلي غير متاح هنا، فلن تُحفظ البيانات. استخدم التصدير لنسخ بياناتك.'}</p><textarea id="ex" placeholder="الصق نسخة محفوظة هنا للاستيراد"></textarea><button class="btn s" data-a="exp">تصدير</button><button class="btn s g" data-a="imp">استيراد</button><button class="btn s g" data-a="rst">مسح كل البيانات</button>`)
++card('<b>عن المؤقت</b><p class="mut">يعتمد المؤقت على ساعة الجهاز فيبقى دقيقاً حتى لو غادرت الصفحة، لكن لا يوجد صوت أو إشعار والصفحة مغلقة؛ يظهر التنبيه عند فتحها.</p>');
+A.exp=()=>{const o={...S,timer:null,xb:null};$('#ex').value=JSON.stringify(o);try{$('#ex').select();navigator.clipboard.writeText($('#ex').value)}catch(e){}toast('تم التصدير. انسخ النص واحفظه.')};
+A.imp=()=>{try{const o=JSON.parse(v('ex'));if(!Array.isArray(o.subs))throw 0;S=Object.assign({},DEF,o);S.set={...DEF.set,...S.set};theme();render();toast('تم الاستيراد ✓')}catch(e){toast('النص غير صالح')}};
+A.rst=()=>modal('مسح كل البيانات؟','<p>لا يمكن التراجع إلا بوجود نسخة مصدّرة.</p>','مسح',()=>{S={...DEF,set:{...DEF.set},subs:[],recs:[],log:[]};theme();render()});
+/* init */
+S.recs.forEach(r=>{if(r.title===undefined){r.title='تسجيل '+r.num;r.method='audio'}});
+if(S.day&&S.day.date!=today())S.day=null;
+if(S.timer&&!(S.day&&S.day.blocks.some(b=>b.id==S.timer.bid)))S.timer=null;
+if(!S.day){S.timer=S.xb=null}
+theme();if(S.view=='setup')initW();render();
+</script><script>if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))</script></body></html>

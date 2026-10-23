@@ -1,0 +1,48 @@
+{
+ "id": "./",
+ "name": "Study Buddy",
+ "short_name": "Study Buddy",
+ "description": "مخطط دراسة بجلسات تركيز واستراحات وتتبّع للتقدّم — Study planner with focus sessions, breaks and progress tracking.",
+ "lang": "ar",
+ "dir": "rtl",
+ "start_url": "./index.html",
+ "scope": "./",
+ "display": "standalone",
+ "display_override": [
+  "standalone",
+  "minimal-ui"
+ ],
+ "orientation": "portrait",
+ "background_color": "#17264B",
+ "theme_color": "#17264B",
+ "categories": [
+  "education",
+  "productivity"
+ ],
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "maskable-192.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "maskable"
+  },
+  {
+   "src": "maskable-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ]
+}
