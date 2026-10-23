@@ -2,6 +2,7 @@
 <title>Study Buddy — رفيق الدراسة</title>
 <title>Study Buddy — رفيق الدراسة</title>
 <title>Study Buddy — رفيق الدراسة</title>
+<title>Study Buddy — رفيق الدراسة</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -44,7 +45,7 @@ input[type=checkbox]{width:22px;min-height:22px;margin:0;margin-inline-end:8px;a
 #toast{position:fixed;bottom:84px;inset-inline:16px;z-index:30;background:var(--ink);color:var(--bg);border-radius:14px;padding:12px;text-align:center}
 textarea{width:100%;height:90px;border-radius:12px;border:1px solid var(--ln);background:var(--card);color:var(--ink);font-size:12px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
-summary{cursor:pointer;color:var(--pk);font-weight:700;padding:8px 0}details{margin:8px 0}.x{width:34px;height:34px;min-height:0;padding:0;border-radius:50%;border:1px solid var(--ln);background:var(--pk2);color:var(--mut);font:inherit;font-size:14px;line-height:1}</style></head><body>
+summary{cursor:pointer;color:var(--pk);font-weight:700;padding:8px 0}details{margin:8px 0}.x{width:34px;height:34px;min-height:0;padding:0;border-radius:50%;border:1px solid var(--ln);background:var(--pk2);color:var(--mut);font:inherit;font-size:14px;line-height:1}.sk{width:100%;height:auto;display:block;border-radius:22px;background:radial-gradient(ellipse at 50% 45%,#243B68,#17264B 72%);border:1px solid var(--ln);margin:8px 0}.tw{animation:tw 3s ease-in-out infinite}@keyframes tw{50%{opacity:.35}}@media(prefers-reduced-motion:reduce){.tw{animation:none}}</style></head><body>
 <svg class="sky" viewBox="0 0 400 240" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><g fill="none" stroke="var(--sw)" stroke-width="1.6" stroke-linecap="round"><path d="M-10 150c60-70 120 30 190-20s90-80 150-30s60 20 80 0"/><path d="M-10 178c70-60 130 40 200-10s100-70 220-20"/><path d="M30 60c40-40 90 10 80 50s-60 40-60 5 40-45 70-30"/><path d="M250 70c30-30 70-10 70 20s-40 35-50 10 20-30 40-18"/></g><g fill="var(--star)"><path d="M330 28l4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/><path d="M70 20l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><path d="M180 44l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5z"/><circle cx="370" cy="110" r="2"/><circle cx="20" cy="120" r="2"/></g></svg><header><b><svg width="20" height="20" viewBox="0 0 24 24" style="vertical-align:-3px;fill:var(--star)"><path d="M12 1l2.5 8.5L23 12l-8.5 2.5L12 23l-2.5-8.5L1 12l8.5-2.5z"/></svg> Study Buddy</b><button id="clk" data-a="clock"></button></header>
 <main id="app"></main>
 <nav><button data-a="go:home"><span>⌂</span>الرئيسية</button><button data-a="go:plan"><span>▤</span>الجدول</button><button data-a="go:session"><span>◷</span>الجلسة</button><button data-a="go:subs"><span>❏</span>المواد</button><button data-a="go:stats"><span>✧</span>إنجازاتي</button><button data-a="go:set"><span>⚙︎</span>الإعدادات</button></nav>
@@ -99,7 +100,24 @@ A.mx=()=>{$('#md').hidden=true;M=null;after=null};
 A.mok=()=>{const f=M;if(f&&f()===false)return;if(M===f)A.mx()};
 document.addEventListener('click',e=>{const t=e.target.closest('[data-a]');if(!t)return;const[a,...p]=t.dataset.a.split(':');if(e.target.id=='md')return;A[a]&&A[a](...p)});
 document.addEventListener('change',e=>{const k=e.target.dataset.set;if(!k)return;const x=e.target.value;S.set[k]=k=='theme'||k=='lang'?x:k=='end'?(parse(x)||1350):+x;theme();render()});
-const TRS=`إزالة المادة؟¦Remove subject?
+const TRS=`مجرّتي¦My Galaxy
+نجمة جديدة في مجرّتك ✦¦A new star in your galaxy ✦
+كوكب جديد في مجرّتك ✦¦A new planet in your galaxy ✦
+مجرّتك الخاصة¦Your very own galaxy
+كوكبة¦Constellation
+سماء مرصّعة¦Starry sky
+سماء هادئة¦Quiet sky
+نجوم: ¦Stars: 
+ · كواكب: ¦ · Planets: 
+باقي ¦Left: 
+ للكوكب التالي¦ to next planet
+المس نجمة أو كوكباً لتعرف قصته.¦Tap a star or planet to see its story.
+سماؤك هادئة بعد. عند إنهاء مادة تظهر نجمة، ومع كل ساعتين دراسة يظهر كوكب.¦Your sky is still quiet. Finishing a subject adds a star, and every two hours of study adds a planet.
+أنهيت هذه المادة بتاريخ ¦Finished this subject on 
+ظهر عند بلوغ ¦Appeared at 
+ ساعة دراسة¦ study hours
+كوكب ¦Planet 
+إزالة المادة؟¦Remove subject?
 ستُزال المادة من قائمتك وخطتك، وتبقى إنجازاتك وسجل دراستك محفوظين في الإحصائيات.¦The subject is removed from your list and plan; your achievements and study history stay saved in your statistics.
 >إزالة<¦>Remove<
 aria-label="إزالة المادة"¦aria-label="Remove subject"
@@ -391,7 +409,7 @@ function tl(h){if(S.set.lang!='en')return h;for(const[a,e] of TR)h=h.split(a).jo
 const NAV0=$('nav').innerHTML;
 function theme(){const r=document.documentElement,en=S.set.lang=='en';S.set.theme?r.setAttribute('data-theme',S.set.theme):r.removeAttribute('data-theme');r.lang=en?'en':'ar';r.dir=en?'ltr':'rtl';$('nav').innerHTML=tl(NAV0);{const m=document.querySelector('meta[name=theme-color]'),dk=S.set.theme=='dark'||(!S.set.theme&&matchMedia('(prefers-color-scheme: dark)').matches);if(m)m.content=dk?'#17264B':'#F8F5ED'}document.title=en?'Study Buddy':'Study Buddy — رفيق الدراسة'}
 const V={};
-function render(){save();$('#app').innerHTML=tl((V[S.view]||V.home)());$('#clk').textContent=fmt(now());document.querySelectorAll('nav button').forEach(n=>n.classList.toggle('on',n.dataset.a=='go:'+S.view))}
+function render(){skyCheck();save();$('#app').innerHTML=tl((V[S.view]||V.home)());$('#clk').textContent=fmt(now());document.querySelectorAll('nav button').forEach(n=>n.classList.toggle('on',n.dataset.a=='go:'+S.view))}
 A.go=x=>{S.view=x;if(x=='setup')initW();render();scrollTo(0,0)};
 /* home */
 V.home0=()=>{const D=S.day,b=cur(),ad=LS().length?'<button class="btn g" data-a="addS">+ إضافة مادة</button>':'';
@@ -513,6 +531,25 @@ V.set=()=>`<h2>الإعدادات</h2>`+card(`<b>المساحة الشخصية: 
 A.exp=()=>{const o={...S,timer:null,xb:null};$('#ex').value=JSON.stringify(o);try{$('#ex').select();navigator.clipboard.writeText($('#ex').value)}catch(e){}toast('تم التصدير. انسخ النص واحفظه.')};
 A.imp=()=>{try{const o=JSON.parse(v('ex'));if(!Array.isArray(o.subs))throw 0;S=Object.assign({},DEF,o);S.set={...DEF.set,...S.set};theme();render();toast('تم الاستيراد ✓')}catch(e){toast('النص غير صالح')}};
 A.rst=()=>modal('مسح كل البيانات؟','<p>لا يمكن التراجع إلا بوجود نسخة مصدّرة.</p>','مسح',()=>{S={...DEF,set:{...DEF.set},subs:[],recs:[],log:[]};theme();render()});
+/* galaxy */
+function skyCheck(){const first=!S.sky;if(!S.sky||!Array.isArray(S.sky.stars))S.sky={stars:[]};
+for(const x of S.subs){const rs=S.recs.filter(r=>r.sid==x.id),all=rs.length>0&&rs.every(r=>r.status=='done');
+if(all&&!x.sd){x.sd=1;S.sky.stars.push({id:uid(),sid:x.id,n:x.name,t:Date.now()});if(!first)toast('نجمة جديدة في مجرّتك ✦')}else if(!all&&x.sd)x.sd=0}
+const pc=Math.floor(S.log.reduce((a,l)=>a+l.m,0)/120);if(S.sky.pl===undefined)S.sky.pl=pc;else if(pc>S.sky.pl){S.sky.pl=pc;toast('كوكب جديد في مجرّتك ✦')}}
+const rnd=k=>{const x=Math.sin(k*127.1+311.7)*43758.5453;return x-Math.floor(x)},PC=['#6F9CCB','#F5C451','#A9B8D5','#F8F5ED','#8FB4DC'];
+const gal=()=>{const st=S.sky.stars,tot=S.log.reduce((a,l)=>a+l.m,0),pc=Math.floor(tot/120);return{st,tot,pc,n:st.length+pc}};
+const galCard=()=>{if(!LS().length&&!S.sky.stars.length)return'';const g=gal();return card(`<div class="rw"><b>✦ مجرّتي</b><span class="mut">نجوم: ${g.st.length} · كواكب: ${g.pc}</span><button class="btn s g" data-a="go:sky">فتح</button></div>`)};
+{const h0=V.home,s0=V.stats;V.home=()=>h0()+galCard();V.stats=()=>s0()+galCard()}
+V.sky=()=>{const{st,tot,pc,n}=gal(),cx=180,cy=190,still=matchMedia('(prefers-reduced-motion: reduce)').matches,lv=n>=12?'مجرّتك الخاصة':n>=5?'كوكبة':n>0?'سماء مرصّعة':'سماء هادئة';
+let g=`<defs><radialGradient id="core"><stop offset="0" stop-color="#F5C451" stop-opacity=".95"/><stop offset=".35" stop-color="#F5C451" stop-opacity=".35"/><stop offset="1" stop-color="#F5C451" stop-opacity="0"/></radialGradient></defs><g fill="none" stroke="#6F9CCB" stroke-width="1.3" opacity=".3" stroke-linecap="round"><path d="M-10 70c60-50 120 30 190-10s100-50 190 0"/><path d="M-10 330c80 40 140-30 210 0s100 30 170-10"/></g>`;
+g+=`<circle cx="${cx}" cy="${cy}" r="${22+Math.min(n,30)*1.4}" fill="url(#core)"/>`;
+for(let k=0;k<Math.min(pc,30);k++){const r=52+(k%7)*17+Math.floor(k/7)*5,a=Math.round(rnd(k+3)*360),pr=5+rnd(k)*5,c=PC[k%5];
+g+=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#A9B8D5" stroke-width=".6" opacity=".25"/><g data-a="sk:p:${k}" transform="rotate(${a} ${cx} ${cy})">${still?'':`<animateTransform attributeName="transform" type="rotate" from="${a} ${cx} ${cy}" to="${a+360} ${cx} ${cy}" dur="${Math.round(40+r*1.1)}s" repeatCount="indefinite"/>`}<circle cx="${cx+r}" cy="${cy}" r="${pr}" fill="${c}"/>${k%3==0?`<ellipse cx="${cx+r}" cy="${cy}" rx="${pr*1.9}" ry="${pr*.5}" fill="none" stroke="${c}" stroke-width="1" opacity=".7"/>`:''}<circle cx="${cx+r}" cy="${cy}" r="14" fill="transparent"/></g>`}
+st.forEach((o,i)=>{const an=.6*i+(i%2)*Math.PI+rnd(i)*.5,rr=Math.min(150,22+Math.sqrt(i+1)*22+rnd(i+9)*12),x=cx+rr*Math.cos(an),y=cy+rr*Math.sin(an)*.95,z=5+rnd(i+5)*4;
+g+=`<g data-a="sk:s:${i}"><path class="tw" style="animation-delay:${(rnd(i+2)*3).toFixed(1)}s" transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) scale(${z.toFixed(1)})" d="M0-1L.22-.22L1 0L.22.22L0 1L-.22.22L-1 0L-.22-.22Z" fill="#F5C451"/><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="13" fill="transparent"/></g>`});
+const nx=120-tot%120;
+return `<h2>✦ مجرّتي</h2><svg class="sk" viewBox="0 0 360 380" role="img" aria-label="مجرّتي">${g}</svg><div class="card" id="skyinfo"><b>${lv}</b><br><span class="mut">نجوم: ${st.length} · كواكب: ${pc}</span>${bar(Math.round((tot%120)/120*100))}<div class="mut">باقي ${nx} د للكوكب التالي</div><div class="mut">${n?'المس نجمة أو كوكباً لتعرف قصته.':'سماؤك هادئة بعد. عند إنهاء مادة تظهر نجمة، ومع كل ساعتين دراسة يظهر كوكب.'}</div></div><button class="btn g" data-a="go:home">الرئيسية</button>`};
+A.sk=(t,i)=>{const e=document.getElementById('skyinfo');if(!e)return;const k=+i;let h;if(t=='s'){const o=S.sky.stars[k];if(!o)return;h=`<b>✦ ${esc(o.n)}</b><br><span class="mut">أنهيت هذه المادة بتاريخ ${new Date(o.t).toLocaleDateString('en-GB')}</span>`}else h=`<b>كوكب ${k+1}</b><br><span class="mut">ظهر عند بلوغ ${(k+1)*2} ساعة دراسة</span>`;e.innerHTML=tl(h)};
 /* init */
 S.recs.forEach(r=>{if(r.title===undefined){r.title='تسجيل '+r.num;r.method='audio'}});
 if(S.day&&S.day.date!=today())S.day=null;
