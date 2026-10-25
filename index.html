@@ -5,6 +5,7 @@
 <title>Study Buddy — رفيق الدراسة</title>
 <title>Study Buddy — رفيق الدراسة</title>
 <title>Study Buddy — رفيق الدراسة</title>
+<title>Study Buddy — رفيق الدراسة</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -53,8 +54,8 @@ summary{cursor:pointer;color:var(--pk);font-weight:700;padding:8px 0}details{mar
 #sf .sft{position:absolute;top:env(safe-area-inset-top,0px);inset-inline:0;display:flex;justify-content:space-between;align-items:center;padding:10px 14px;pointer-events:none;font:600 22px var(--fd)}#sf .sft>*{pointer-events:auto}
 .sfb{width:44px;height:44px;border-radius:50%;border:1px solid rgba(169,184,213,.45);background:rgba(23,38,75,.75);color:#F8F5ED;font:inherit;font-size:20px;margin-inline-start:4px}
 #sf .sfi{position:absolute;bottom:0;inset-inline:0;padding:26px 18px calc(14px + env(safe-area-inset-bottom,0px));background:linear-gradient(transparent,rgba(15,26,54,.94) 28%);pointer-events:none}#sf .mut{color:#A9B8D5}#sf .bar{background:rgba(255,255,255,.15)}#sf .bar i{background:#F5C451}
-</style></head><body>
-<svg class="sky" viewBox="0 0 400 240" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><g fill="none" stroke="var(--sw)" stroke-width="1.6" stroke-linecap="round"><path d="M-10 150c60-70 120 30 190-20s90-80 150-30s60 20 80 0"/><path d="M-10 178c70-60 130 40 200-10s100-70 220-20"/><path d="M30 60c40-40 90 10 80 50s-60 40-60 5 40-45 70-30"/><path d="M250 70c30-30 70-10 70 20s-40 35-50 10 20-30 40-18"/></g><g fill="var(--star)"><path d="M330 28l4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/><path d="M70 20l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><path d="M180 44l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5z"/><circle cx="370" cy="110" r="2"/><circle cx="20" cy="120" r="2"/></g></svg><header><b><svg width="20" height="20" viewBox="0 0 24 24" style="vertical-align:-3px;fill:var(--star)"><path d="M12 1l2.5 8.5L23 12l-8.5 2.5L12 23l-2.5-8.5L1 12l8.5-2.5z"/></svg> Study Buddy</b><button id="clk" data-a="clock"></button></header>
+.hr{display:flex;gap:8px;align-items:center}#stk{background:var(--pk2);border:1px solid var(--ln);border-radius:14px;padding:6px 12px;font:inherit;font-weight:700;color:var(--ink)}#stk i{font-style:normal;color:var(--mut);opacity:.6}#stk.on i{color:var(--star);opacity:1}</style></head><body>
+<svg class="sky" viewBox="0 0 400 240" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><g fill="none" stroke="var(--sw)" stroke-width="1.6" stroke-linecap="round"><path d="M-10 150c60-70 120 30 190-20s90-80 150-30s60 20 80 0"/><path d="M-10 178c70-60 130 40 200-10s100-70 220-20"/><path d="M30 60c40-40 90 10 80 50s-60 40-60 5 40-45 70-30"/><path d="M250 70c30-30 70-10 70 20s-40 35-50 10 20-30 40-18"/></g><g fill="var(--star)"><path d="M330 28l4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/><path d="M70 20l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><path d="M180 44l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5z"/><circle cx="370" cy="110" r="2"/><circle cx="20" cy="120" r="2"/></g></svg><header><b><svg width="20" height="20" viewBox="0 0 24 24" style="vertical-align:-3px;fill:var(--star)"><path d="M12 1l2.5 8.5L23 12l-8.5 2.5L12 23l-2.5-8.5L1 12l8.5-2.5z"/></svg> Study Buddy</b><span class="hr"><button id="stk" data-a="stkinfo"><i>✦</i> <span id="stkn">0</span></button><button id="clk" data-a="clock"></button></span></header>
 <main id="app"></main>
 <nav><button data-a="go:home"><span>⌂</span>الرئيسية</button><button data-a="go:plan"><span>▤</span>الجدول</button><button data-a="go:session"><span>◷</span>الجلسة</button><button data-a="go:subs"><span>❏</span>المواد</button><button data-a="go:stats"><span>✧</span>إنجازاتي</button><button data-a="go:set"><span>⚙︎</span>الإعدادات</button></nav>
 <div id="md" hidden></div><div id="toast" hidden></div>
@@ -108,7 +109,9 @@ A.mx=()=>{$('#md').hidden=true;M=null;after=null};
 A.mok=()=>{const f=M;if(f&&f()===false)return;if(M===f)A.mx()};
 document.addEventListener('click',e=>{const t=e.target.closest('[data-a]');if(!t)return;const[a,...p]=t.dataset.a.split(':');if(e.target.id=='md')return;A[a]&&A[a](...p)});
 document.addEventListener('change',e=>{const k=e.target.dataset.set;if(!k)return;const x=e.target.value;S.set[k]=k=='theme'||k=='lang'?x:k=='end'?(parse(x)||1350):+x;theme();render()});
-const TRS=`✦ نجمات الاستمرار¦✦ Streak stars
+const TRS=`سلسلة الدراسة¦Study streak
+كل يوم دراسة (30 دقيقة على الأقل) يضيف نجمة، وإذا فات يوم كامل تعود السلسلة إلى الصفر.¦Each study day (at least 30 minutes) adds a star; if a whole day is missed the streak returns to zero.
+✦ نجمات الاستمرار¦✦ Streak stars
 أفضل سلسلة: ¦Best streak: 
 يوم متتالٍ¦day in a row
 أيام متتالية¦days in a row
@@ -118,7 +121,7 @@ const TRS=`✦ نجمات الاستمرار¦✦ Streak stars
 30 دقيقة دراسة اليوم تكفي لبدء سلسلة جديدة¦30 minutes of study today is enough to start a new streak
 نجمة جديدة في سلسلتك ✦¦A new star in your streak ✦
 aria-label="إغلاق"¦aria-label="Close"
-اسحب للتنقل، واقرص بإصبعين للتكبير والتصغير. المس نجمة أو كوكباً لتعرف قصته.¦Drag to move, pinch with two fingers to zoom. Tap a star or planet to see its story.
+الفضاء لا ينتهي: اسحب للتنقل، واقرص بإصبعين للتكبير والتصغير. المس نجمة أو كوكباً لتعرف قصته.¦Space never ends: drag to move, pinch with two fingers to zoom. Tap a star or planet to see its story.
 تثبيت كتطبيق¦Install as an app
 لفتح Study Buddy بملء الشاشة بدون شريط المتصفح: افتح الرابط في Chrome، ثم قائمة ⋮ ← «تثبيت التطبيق».¦To open Study Buddy full screen without the browser bar: open the link in Chrome, then menu ⋮ → “Install app”.
 الإصدار: ¦Version: 
@@ -429,9 +432,9 @@ placeholder="اسم المادة"¦placeholder="Subject name"
  مهمة/مهام إلى الأيام القادمة لعدم كفاية وقت اليوم.¦ task(s) to upcoming days: not enough time today.`;const TR=TRS.split('\n').map(l=>l.split('¦')).sort((a,b)=>b[0].length-a[0].length);
 function tl(h){if(S.set.lang!='en')return h;for(const[a,e] of TR)h=h.split(a).join(e);return h.replace(/(\d)\s?د(?![\u0600-\u06FF])/g,'$1 min')}
 const NAV0=$('nav').innerHTML;
-function theme(){const r=document.documentElement,en=S.set.lang=='en';S.set.theme?r.setAttribute('data-theme',S.set.theme):r.removeAttribute('data-theme')+`<p class="mut" style="text-align:center">الإصدار: 10 ✦ مجرّتي</p>`;r.lang=en?'en':'ar';r.dir=en?'ltr':'rtl';$('nav').innerHTML=tl(NAV0);{const m=document.querySelector('meta[name=theme-color]'),dk=S.set.theme=='dark'||(!S.set.theme&&matchMedia('(prefers-color-scheme: dark)').matches);if(m)m.content=dk?'#17264B':'#F8F5ED'}document.title=en?'Study Buddy':'Study Buddy — رفيق الدراسة'}
+function theme(){const r=document.documentElement,en=S.set.lang=='en';S.set.theme?r.setAttribute('data-theme',S.set.theme):r.removeAttribute('data-theme')+`<p class="mut" style="text-align:center">الإصدار: 11 ✦ مجرّتي</p>`;r.lang=en?'en':'ar';r.dir=en?'ltr':'rtl';$('nav').innerHTML=tl(NAV0);{const m=document.querySelector('meta[name=theme-color]'),dk=S.set.theme=='dark'||(!S.set.theme&&matchMedia('(prefers-color-scheme: dark)').matches);if(m)m.content=dk?'#17264B':'#F8F5ED'}document.title=en?'Study Buddy':'Study Buddy — رفيق الدراسة'}
 const V={};
-function render(){skyCheck();stkCheck();save();$('#app').innerHTML=tl((V[S.view]||V.home)());$('#clk').textContent=fmt(now());document.querySelectorAll('nav button').forEach(n=>n.classList.toggle('on',n.dataset.a=='go:'+S.view))}
+function render(){skyCheck();stkCheck();save();$('#app').innerHTML=tl((V[S.view]||V.home)());$('#clk').textContent=fmt(now());{const b=$('#stk');$('#stkn').textContent=streak();b.classList.toggle('on',dayMin(iso())>=30);if(b.setAttribute)b.setAttribute('aria-label',tl('سلسلة الدراسة'))}document.querySelectorAll('nav button').forEach(n=>n.classList.toggle('on',n.dataset.a=='go:'+S.view))}
 A.go=x=>{S.view=x;if(x=='setup')initW();render();scrollTo(0,0)};
 /* home */
 V.home0=()=>{const D=S.day,b=cur(),ad=LS().length?'<button class="btn g" data-a="addS">+ إضافة مادة</button>':'';
@@ -568,8 +571,15 @@ function stkCheck(){const t=dayMin(iso());if(!S.stk)S.stk={d:t>=30?iso():''};els
 function strCard(){if(!LS().length&&!S.log.length)return'';const n=streak(),m=dayMin(iso());let w='';for(let i=6;i>=0;i--)w+=`<span class="sg${dayMin(iso(-i))>=30?' on':''}${i==0?' t':''}">✦</span>`;
 return card(`<div class="rw"><b>✦ نجمات الاستمرار</b><span class="mut">أفضل سلسلة: ${bestStreak()}</span></div><div class="stk"><span class="stn">${n}</span><span class="mut">${n==1?'يوم متتالٍ':'أيام متتالية'}</span></div><div>${w}</div>${bar(Math.min(100,Math.round(m/30*100)))}<div class="mut">${m>=30?'تم تحقيق هدف اليوم ✦ (30 دقيقة)':n?`تبقّى ${30-m} د للحفاظ على سلسلتك اليوم`:'30 دقيقة دراسة اليوم تكفي لبدء سلسلة جديدة'}</div>`)}
 {const h0=V.home,s0=V.stats;V.home=()=>h0()+strCard()+galCard();V.stats=()=>s0()+strCard()+galCard()}
+function hsh(a,b,c){let x=Math.imul(a|0,374761393)^Math.imul(b|0,668265263)^Math.imul(c|0,2147483629);x=Math.imul(x^x>>>13,1274126177);return((x^x>>>16)>>>0)/4294967296}
+function skyBg(tx,ty,k,W,H){let o='';const C=['#F8F5ED','#F8F5ED','#A9B8D5','#6F9CCB','#F5C451'];
+for(let L=0;L<18;L++){const T=.05*Math.pow(4,L),ts=T*k;if(ts<60)continue;
+const i0=Math.floor(-tx/ts),i1=Math.floor((W-tx)/ts),j0=Math.floor(-ty/ts),j1=Math.floor((H-ty)/ts);if((i1-i0+1)*(j1-j0+1)>400)continue;const fd=Math.min(1,(ts-60)/60+.05);
+for(let i=i0;i<=i1;i++)for(let j=j0;j<=j1;j++){for(let n=0;n<10;n++){const x=tx+(i+hsh(i,j,n*7+L))*ts,y=ty+(j+hsh(i,j,n*7+L+1000))*ts;if(x<-4||x>W+4||y<-4||y>H+4)continue;
+o+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(.5+hsh(i,j,n*7+L+2000)*1.3).toFixed(1)}" fill="${C[Math.floor(hsh(i,j,n+L+3000)*5)]}" opacity="${((.25+hsh(i,j,n+L+4000)*.6)*fd).toFixed(2)}"/>`}
+if(T>=1&&hsh(i,j,L+5000)<.08){const x=tx+(i+.5)*ts,y=ty+(j+.5)*ts,rx=Math.min(ts*.12,60);o+=`<ellipse cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" rx="${rx.toFixed(1)}" ry="${(rx*.4).toFixed(1)}" transform="rotate(${Math.round(hsh(i,j,L+6000)*180)} ${x.toFixed(1)} ${y.toFixed(1)})" fill="#A9B8D5" opacity=".13"/>`}}}
+return o}
 function skyWorld(){const{st,tot,pc,n}=gal(),lv=n>=12?'مجرّتك الخاصة':n>=5?'كوكبة':n>0?'سماء مرصّعة':'سماء هادئة',still=matchMedia('(prefers-reduced-motion: reduce)').matches;let g='',R=110;
-for(let i=0;i<150;i++){const a=rnd(i+500)*6.283,r=40+Math.sqrt(rnd(i+900))*520;g+=`<circle cx="${(r*Math.cos(a)).toFixed(0)}" cy="${(r*Math.sin(a)).toFixed(0)}" r="${(.5+rnd(i+1300)*1.2).toFixed(1)}" fill="#F8F5ED" opacity="${(.2+rnd(i+1700)*.5).toFixed(2)}"/>`}
 g+='<g fill="none" stroke="#6F9CCB" stroke-width="2" opacity=".18" stroke-linecap="round"><path d="M-420-120c120-110 240 60 380-20s200-120 380 0"/><path d="M-420 160c140 90 260-60 400 0s200 70 340-20"/></g>';
 g+=`<circle r="${26+Math.min(n,40)*1.6}" fill="url(#core)"/>`;
 for(let k=0;k<Math.min(pc,40);k++){const r=52+(k%7)*17+Math.floor(k/7)*5,a=Math.round(rnd(k+3)*360),pr=5+rnd(k)*5,c=PC[k%5];R=Math.max(R,r+14);
@@ -577,20 +587,21 @@ g+=`<circle r="${r}" fill="none" stroke="#A9B8D5" stroke-width=".6" opacity=".25
 st.forEach((o,i)=>{const an=.6*i+(i%2)*Math.PI+rnd(i)*.5,rr=Math.min(300,22+Math.sqrt(i+1)*26+rnd(i+9)*14);R=Math.max(R,rr+14);const x=rr*Math.cos(an),y=rr*Math.sin(an)*.95,z=5+rnd(i+5)*4;
 g+=`<g data-a="sk:s:${i}"><path class="tw" style="animation-delay:${(rnd(i+2)*3).toFixed(1)}s" transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) scale(${z.toFixed(1)})" d="M0-1L.22-.22L1 0L.22.22L0 1L-.22.22L-1 0L-.22-.22Z" fill="#F5C451"/><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="14" fill="transparent"/></g>`});
 return{g,R,st,tot,pc,n,lv}}
-const skyDef=d=>`<b>${d.lv}</b> <span class="mut">نجوم: ${d.st.length} · كواكب: ${d.pc}</span>${bar(Math.round((d.tot%120)/120*100))}<div class="mut">باقي ${120-d.tot%120} د للكوكب التالي</div><div class="mut">${d.n?'اسحب للتنقل، واقرص بإصبعين للتكبير والتصغير. المس نجمة أو كوكباً لتعرف قصته.':'سماؤك هادئة بعد. عند إنهاء مادة تظهر نجمة، ومع كل ساعتين دراسة يظهر كوكب.'}</div>`;
+const skyDef=d=>`<b>${d.lv}</b> <span class="mut">نجوم: ${d.st.length} · كواكب: ${d.pc}</span>${bar(Math.round((d.tot%120)/120*100))}<div class="mut">باقي ${120-d.tot%120} د للكوكب التالي</div><div class="mut">${d.n?'الفضاء لا ينتهي: اسحب للتنقل، واقرص بإصبعين للتكبير والتصغير. المس نجمة أو كوكباً لتعرف قصته.':'سماؤك هادئة بعد. عند إنهاء مادة تظهر نجمة، ومع كل ساعتين دراسة يظهر كوكب.'}</div>`;
 let SZ=null;
 function closeSky(){const e=document.getElementById('sf');if(e&&e.remove)e.remove();SZ=null}
 A.sky=()=>{closeSky();const d=skyWorld(),el=document.createElement('div');el.id='sf';
-el.innerHTML=tl(`<svg role="img" aria-label="مجرّتي"><defs><radialGradient id="core"><stop offset="0" stop-color="#F5C451" stop-opacity=".95"/><stop offset=".35" stop-color="#F5C451" stop-opacity=".35"/><stop offset="1" stop-color="#F5C451" stop-opacity="0"/></radialGradient></defs><g id="vp">${d.g}</g></svg><div class="sft"><button class="sfb" data-a="skyx" aria-label="إغلاق">✕</button><b>✦ مجرّتي</b><span><button class="sfb" data-a="skz:in">+</button> <button class="sfb" data-a="skz:out">−</button> <button class="sfb" data-a="skz:r">⟲</button></span></div><div class="sfi" id="skyinfo">${skyDef(d)}</div>`);
+el.innerHTML=tl(`<svg role="img" aria-label="مجرّتي"><defs><radialGradient id="core"><stop offset="0" stop-color="#F5C451" stop-opacity=".95"/><stop offset=".35" stop-color="#F5C451" stop-opacity=".35"/><stop offset="1" stop-color="#F5C451" stop-opacity="0"/></radialGradient></defs><g id="bg"></g><g id="vp">${d.g}</g></svg><div class="sft"><button class="sfb" data-a="skyx" aria-label="إغلاق">✕</button><b>✦ مجرّتي</b><span><button class="sfb" data-a="skz:in">+</button> <button class="sfb" data-a="skz:out">−</button> <button class="sfb" data-a="skz:r">⟲</button></span></div><div class="sfi" id="skyinfo">${skyDef(d)}</div>`);
 document.body.appendChild(el);initSky(el,d.R);try{history.pushState({sky:1},'')}catch(e){}};
 A.skyx=()=>{closeSky();try{if(history.state&&history.state.sky)history.back()}catch(e){}};
 addEventListener('popstate',closeSky);
+A.stkinfo=()=>modal('✦ نجمات الاستمرار','<p class="mut">كل يوم دراسة (30 دقيقة على الأقل) يضيف نجمة، وإذا فات يوم كامل تعود السلسلة إلى الصفر.</p>'+strCard(),'');
 A.skz=t=>{if(SZ)t=='in'?SZ.z(1.4):t=='out'?SZ.z(1/1.4):SZ.r()};
 {const s1=V.set;V.set=()=>{let c='';try{if(!standalone()&&top===window&&/^https?:/.test(location.protocol))c=card(`<b>تثبيت كتطبيق</b><p class="mut">لفتح Study Buddy بملء الشاشة بدون شريط المتصفح: افتح الرابط في Chrome، ثم قائمة ⋮ ← «تثبيت التطبيق».</p>${dip?'<button class="btn" data-a="inst">تثبيت التطبيق</button>':''}`)}catch(e){}return s1()+c}}
 {const go0=A.go;A.go=x=>x=='sky'?A.sky():go0(x)}
 function initSky(el,R){const svg=el.querySelector('svg'),vp=el.querySelector('#vp');if(!svg||!svg.addEventListener||!vp||!vp.setAttribute)return;
 const W=()=>el.clientWidth||360,H=()=>el.clientHeight||640,K0=Math.min(W(),H()*.8)/(2*R)*.95;let k=K0,tx=W()/2,ty=H()*.44;
-const ap=()=>vp.setAttribute('transform',`translate(${tx} ${ty}) scale(${k})`),zm=(f,px,py)=>{const nk=Math.max(K0*.35,Math.min(K0*12,k*f)),r=nk/k;tx=px-(px-tx)*r;ty=py-(py-ty)*r;k=nk;ap()};
+const bg=el.querySelector('#bg');let raf=0;const dr=()=>{raf=0;if(bg)bg.innerHTML=skyBg(tx,ty,k,W(),H())},ap=()=>{vp.setAttribute('transform',`translate(${tx} ${ty}) scale(${k})`);if(!raf)raf=requestAnimationFrame(dr)},zm=(f,px,py)=>{const nk=Math.max(K0*.0005,Math.min(K0*600,k*f)),r=nk/k;tx=px-(px-tx)*r;ty=py-(py-ty)*r;k=nk;ap()};
 SZ={z:f=>zm(f,W()/2,H()*.44),r:()=>{k=K0;tx=W()/2;ty=H()*.44;ap()}};ap();
 const P=new Map();let mv=0,d0=0,moved=false;
 svg.addEventListener('pointerdown',e=>{P.set(e.pointerId,{x:e.clientX,y:e.clientY});if(P.size==1){mv=0;moved=false}if(P.size==2){const[a,b]=[...P.values()];d0=Math.hypot(a.x-b.x,a.y-b.y)}});
