@@ -6,6 +6,7 @@
 <title>Study Buddy — رفيق الدراسة</title>
 <title>Study Buddy — رفيق الدراسة</title>
 <title>Study Buddy — رفيق الدراسة</title>
+<title>Study Buddy — رفيق الدراسة</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -54,7 +55,13 @@ summary{cursor:pointer;color:var(--pk);font-weight:700;padding:8px 0}details{mar
 #sf .sft{position:absolute;top:env(safe-area-inset-top,0px);inset-inline:0;display:flex;justify-content:space-between;align-items:center;padding:10px 14px;pointer-events:none;font:600 22px var(--fd)}#sf .sft>*{pointer-events:auto}
 .sfb{width:44px;height:44px;border-radius:50%;border:1px solid rgba(169,184,213,.45);background:rgba(23,38,75,.75);color:#F8F5ED;font:inherit;font-size:20px;margin-inline-start:4px}
 #sf .sfi{position:absolute;bottom:0;inset-inline:0;padding:26px 18px calc(14px + env(safe-area-inset-bottom,0px));background:linear-gradient(transparent,rgba(15,26,54,.94) 28%);pointer-events:none}#sf .mut{color:#A9B8D5}#sf .bar{background:rgba(255,255,255,.15)}#sf .bar i{background:#F5C451}
-.hr{display:flex;gap:8px;align-items:center}#stk{background:var(--pk2);border:1px solid var(--ln);border-radius:14px;padding:6px 12px;font:inherit;font-weight:700;color:var(--ink)}#stk i{font-style:normal;color:var(--mut);opacity:.6}#stk.on i{color:var(--star);opacity:1}</style></head><body>
+.hr{display:flex;gap:8px;align-items:center}#stk{background:var(--pk2);border:1px solid var(--ln);border-radius:14px;padding:6px 12px;font:inherit;font-weight:700;color:var(--ink)}#stk i{font-style:normal;color:var(--mut);opacity:.6}#stk.on i{color:var(--star);opacity:1}#cl{position:fixed;inset:0;z-index:15;background:var(--bg);color:var(--ink);overflow:auto;padding:calc(env(safe-area-inset-top,0px) + 8px) 14px calc(20px + env(safe-area-inset-bottom,0px))}
+#cl .cht{display:flex;align-items:center;gap:8px;margin-bottom:10px}#cl .cn{flex:1;display:flex;align-items:center;justify-content:space-between;gap:4px}#cl .cn b{font:600 20px var(--fd);text-align:center;flex:1}
+#cl .sfb{background:var(--pk2);color:var(--ink);border:1px solid var(--ln);width:40px;height:40px;font-size:18px;margin:0}
+.cgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}.cgrid>b{font-size:12px;padding:4px 0}
+.cd{position:relative;min-height:54px;border-radius:12px;border:1px solid var(--ln);background:var(--card);color:var(--ink);font:inherit;padding:4px 0;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.2}.cd small{font-size:11px;opacity:.85;min-height:13px}.cd i{position:absolute;top:2px;inset-inline-end:4px;font-style:normal;font-size:10px;color:var(--star);text-shadow:0 0 2px #17264B}
+.cd.l1{background:color-mix(in srgb,var(--pk) 14%,var(--card))}.cd.l2{background:color-mix(in srgb,var(--pk) 30%,var(--card))}.cd.l3{background:color-mix(in srgb,var(--pk) 55%,var(--card))}.cd.l4{background:var(--pk);color:var(--onpk)}.cd.t{outline:2px dashed var(--pk);outline-offset:1px}.cd:disabled{opacity:.3}
+.cinfo{margin:14px 0 8px;padding:14px;border:1px solid var(--ln);border-radius:18px;background:var(--card)}</style></head><body>
 <svg class="sky" viewBox="0 0 400 240" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><g fill="none" stroke="var(--sw)" stroke-width="1.6" stroke-linecap="round"><path d="M-10 150c60-70 120 30 190-20s90-80 150-30s60 20 80 0"/><path d="M-10 178c70-60 130 40 200-10s100-70 220-20"/><path d="M30 60c40-40 90 10 80 50s-60 40-60 5 40-45 70-30"/><path d="M250 70c30-30 70-10 70 20s-40 35-50 10 20-30 40-18"/></g><g fill="var(--star)"><path d="M330 28l4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/><path d="M70 20l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><path d="M180 44l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5z"/><circle cx="370" cy="110" r="2"/><circle cx="20" cy="120" r="2"/></g></svg><header><b><svg width="20" height="20" viewBox="0 0 24 24" style="vertical-align:-3px;fill:var(--star)"><path d="M12 1l2.5 8.5L23 12l-8.5 2.5L12 23l-2.5-8.5L1 12l8.5-2.5z"/></svg> Study Buddy</b><span class="hr"><button id="stk" data-a="stkinfo"><i>✦</i> <span id="stkn">0</span></button><button id="clk" data-a="clock"></button></span></header>
 <main id="app"></main>
 <nav><button data-a="go:home"><span>⌂</span>الرئيسية</button><button data-a="go:plan"><span>▤</span>الجدول</button><button data-a="go:session"><span>◷</span>الجلسة</button><button data-a="go:subs"><span>❏</span>المواد</button><button data-a="go:stats"><span>✧</span>إنجازاتي</button><button data-a="go:set"><span>⚙︎</span>الإعدادات</button></nav>
@@ -109,7 +116,13 @@ A.mx=()=>{$('#md').hidden=true;M=null;after=null};
 A.mok=()=>{const f=M;if(f&&f()===false)return;if(M===f)A.mx()};
 document.addEventListener('click',e=>{const t=e.target.closest('[data-a]');if(!t)return;const[a,...p]=t.dataset.a.split(':');if(e.target.id=='md')return;A[a]&&A[a](...p)});
 document.addEventListener('change',e=>{const k=e.target.dataset.set;if(!k)return;const x=e.target.value;S.set[k]=k=='theme'||k=='lang'?x:k=='end'?(parse(x)||1350):+x;theme();render()});
-const TRS=`سلسلة الدراسة¦Study streak
+const TRS=`عرض التقويم ‹¦View calendar ›
+المس يوماً لعرض تفاصيله.¦Tap a day to see its details.
+لا توجد دراسة مسجّلة في هذا اليوم.¦No study recorded on this day.
+عدد الجلسات: ¦Sessions: 
+ · ✦ نجمة الاستمرار¦ · ✦ streak star
+أيام الدراسة: ¦Study days: 
+سلسلة الدراسة¦Study streak
 كل يوم دراسة (30 دقيقة على الأقل) يضيف نجمة، وإذا فات يوم كامل تعود السلسلة إلى الصفر.¦Each study day (at least 30 minutes) adds a star; if a whole day is missed the streak returns to zero.
 ✦ نجمات الاستمرار¦✦ Streak stars
 أفضل سلسلة: ¦Best streak: 
@@ -432,7 +445,7 @@ placeholder="اسم المادة"¦placeholder="Subject name"
  مهمة/مهام إلى الأيام القادمة لعدم كفاية وقت اليوم.¦ task(s) to upcoming days: not enough time today.`;const TR=TRS.split('\n').map(l=>l.split('¦')).sort((a,b)=>b[0].length-a[0].length);
 function tl(h){if(S.set.lang!='en')return h;for(const[a,e] of TR)h=h.split(a).join(e);return h.replace(/(\d)\s?د(?![\u0600-\u06FF])/g,'$1 min')}
 const NAV0=$('nav').innerHTML;
-function theme(){const r=document.documentElement,en=S.set.lang=='en';S.set.theme?r.setAttribute('data-theme',S.set.theme):r.removeAttribute('data-theme')+`<p class="mut" style="text-align:center">الإصدار: 11 ✦ مجرّتي</p>`;r.lang=en?'en':'ar';r.dir=en?'ltr':'rtl';$('nav').innerHTML=tl(NAV0);{const m=document.querySelector('meta[name=theme-color]'),dk=S.set.theme=='dark'||(!S.set.theme&&matchMedia('(prefers-color-scheme: dark)').matches);if(m)m.content=dk?'#17264B':'#F8F5ED'}document.title=en?'Study Buddy':'Study Buddy — رفيق الدراسة'}
+function theme(){const r=document.documentElement,en=S.set.lang=='en';S.set.theme?r.setAttribute('data-theme',S.set.theme):r.removeAttribute('data-theme')+`<p class="mut" style="text-align:center">الإصدار: 12 ✦ مجرّتي</p>`;r.lang=en?'en':'ar';r.dir=en?'ltr':'rtl';$('nav').innerHTML=tl(NAV0);{const m=document.querySelector('meta[name=theme-color]'),dk=S.set.theme=='dark'||(!S.set.theme&&matchMedia('(prefers-color-scheme: dark)').matches);if(m)m.content=dk?'#17264B':'#F8F5ED'}document.title=en?'Study Buddy':'Study Buddy — رفيق الدراسة'}
 const V={};
 function render(){skyCheck();stkCheck();save();$('#app').innerHTML=tl((V[S.view]||V.home)());$('#clk').textContent=fmt(now());{const b=$('#stk');$('#stkn').textContent=streak();b.classList.toggle('on',dayMin(iso())>=30);if(b.setAttribute)b.setAttribute('aria-label',tl('سلسلة الدراسة'))}document.querySelectorAll('nav button').forEach(n=>n.classList.toggle('on',n.dataset.a=='go:'+S.view))}
 A.go=x=>{S.view=x;if(x=='setup')initW();render();scrollTo(0,0)};
@@ -570,7 +583,7 @@ function bestStreak(){const m={};S.log.forEach(l=>{m[l.d]=(m[l.d]||0)+l.m});cons
 function stkCheck(){const t=dayMin(iso());if(!S.stk)S.stk={d:t>=30?iso():''};else if(t>=30&&S.stk.d!=iso()){S.stk.d=iso();toast('نجمة جديدة في سلسلتك ✦')}}
 function strCard(){if(!LS().length&&!S.log.length)return'';const n=streak(),m=dayMin(iso());let w='';for(let i=6;i>=0;i--)w+=`<span class="sg${dayMin(iso(-i))>=30?' on':''}${i==0?' t':''}">✦</span>`;
 return card(`<div class="rw"><b>✦ نجمات الاستمرار</b><span class="mut">أفضل سلسلة: ${bestStreak()}</span></div><div class="stk"><span class="stn">${n}</span><span class="mut">${n==1?'يوم متتالٍ':'أيام متتالية'}</span></div><div>${w}</div>${bar(Math.min(100,Math.round(m/30*100)))}<div class="mut">${m>=30?'تم تحقيق هدف اليوم ✦ (30 دقيقة)':n?`تبقّى ${30-m} د للحفاظ على سلسلتك اليوم`:'30 دقيقة دراسة اليوم تكفي لبدء سلسلة جديدة'}</div>`)}
-{const h0=V.home,s0=V.stats;V.home=()=>h0()+strCard()+galCard();V.stats=()=>s0()+strCard()+galCard()}
+{const h0=V.home,s0=V.stats;V.home=()=>h0()+strCard()+galCard();V.stats=()=>s0().replace('<div class="card"><b>آخر 7 أيام (دقائق)</b>','<div class="card" data-a="cal" style="cursor:pointer"><div class="rw"><b>آخر 7 أيام (دقائق)</b><span class="tag">عرض التقويم ‹</span></div>')+strCard()+galCard()}
 function hsh(a,b,c){let x=Math.imul(a|0,374761393)^Math.imul(b|0,668265263)^Math.imul(c|0,2147483629);x=Math.imul(x^x>>>13,1274126177);return((x^x>>>16)>>>0)/4294967296}
 function skyBg(tx,ty,k,W,H){let o='';const C=['#F8F5ED','#F8F5ED','#A9B8D5','#6F9CCB','#F5C451'];
 for(let L=0;L<18;L++){const T=.05*Math.pow(4,L),ts=T*k;if(ts<60)continue;
@@ -612,6 +625,30 @@ svg.addEventListener('wheel',e=>{e.preventDefault();const r=svg.getBoundingClien
 svg.addEventListener('dblclick',e=>{const r=svg.getBoundingClientRect();zm(1.8,e.clientX-r.left,e.clientY-r.top)});
 el.addEventListener('click',e=>{if(moved){e.stopPropagation();e.preventDefault();moved=false}},true)}
 A.sk=(t,i)=>{const e=document.getElementById('skyinfo');if(!e)return;const k=+i;let h;if(t=='s'){const o=S.sky.stars[k];if(!o)return;h=`<b>✦ ${esc(o.n)}</b><br><span class="mut">أنهيت هذه المادة بتاريخ ${new Date(o.t).toLocaleDateString('en-GB')}</span>`}else h=`<b>كوكب ${k+1}</b><br><span class="mut">ظهر عند بلوغ ${(k+1)*2} ساعة دراسة</span>`;e.innerHTML=tl(h)};
+/* calendar */
+let CAL=null;
+const calLoc=()=>S.set.lang=='en'?'en-GB':'ar-u-nu-latn',dkey=(y,m,d)=>y+'-'+(m+1)+'-'+d;
+function calData(){const o={};for(const l of S.log){const e=o[l.d]||(o[l.d]={m:0,n:0,s:{}});e.m+=l.m;e.n++;const x=e.s[l.sid]||(e.s[l.sid]={m:0,t:[]});x.m+=l.m;const r=rec(l.rid);if(r&&r.title&&!x.t.includes(r.title))x.t.push(r.title)}return o}
+function calHTML(){const{y,m}=CAL,D=calData(),first=new Date(y,m,1),nd=new Date(y,m+1,0).getDate(),st=S.set.lang=='en'?0:6,off=(first.getDay()-st+7)%7,td=new Date();let tot=0,days=0,g='',wd='';
+for(let d=1;d<=nd;d++){const e=D[dkey(y,m,d)];if(e&&e.m>0){tot+=e.m;days++}}
+for(let i=0;i<7;i++)wd+=`<b class="mut">${new Date(2023,0,1+((st+i)%7)).toLocaleDateString(calLoc(),{weekday:'narrow'})}</b>`;
+for(let i=0;i<off;i++)g+='<span></span>';
+for(let d=1;d<=nd;d++){const e=D[dkey(y,m,d)],mn=e?e.m:0,fut=new Date(y,m,d)>td,lv=mn>=120?4:mn>=60?3:mn>=30?2:mn>0?1:0,isT=y==td.getFullYear()&&m==td.getMonth()&&d==td.getDate();
+g+=`<button class="cd l${lv}${isT?' t':''}"${fut?' disabled':''} data-a="cald:${dkey(y,m,d)}"><span>${d}</span><small>${mn||''}</small>${mn>=30?'<i>✦</i>':''}</button>`}
+return{title:first.toLocaleDateString(calLoc(),{month:'long',year:'numeric'}),html:`<div class="cgrid">${wd}${g}</div>`,sum:`<div class="rw"><b>${tot} د</b><span class="mut">أيام الدراسة: ${days}</span></div>`}}
+function calRender(){const el=document.getElementById('cl');if(!el||!CAL)return;const c=calHTML(),en=S.set.lang=='en',P=en?'‹':'›',N=en?'›':'‹',PY=en?'«':'»',NY=en?'»':'«';
+el.innerHTML=tl(`<div class="cht"><button class="sfb" data-a="calx" aria-label="إغلاق">✕</button><div class="cn"><button class="sfb" data-a="caly:-1">${PY}</button><button class="sfb" data-a="calm:-1">${P}</button><b>${c.title}</b><button class="sfb" data-a="calm:1">${N}</button><button class="sfb" data-a="caly:1">${NY}</button></div></div>${c.html}<div class="cinfo" id="cinfo">${c.sum}<div class="mut">المس يوماً لعرض تفاصيله.</div></div><button class="btn g" data-a="calt">اليوم</button>`)}
+function closeCal(){const e=document.getElementById('cl');if(e&&e.remove)e.remove();CAL=null}
+A.cal=()=>{closeCal();const n=new Date(),el=document.createElement('div');el.id='cl';CAL={y:n.getFullYear(),m:n.getMonth()};document.body.appendChild(el);calRender();try{history.pushState({cal:1},'')}catch(e){}};
+A.calx=()=>{closeCal();try{if(history.state&&history.state.cal)history.back()}catch(e){}};
+addEventListener('popstate',closeCal);
+A.calm=d=>{if(!CAL)return;CAL.m+=+d;while(CAL.m<0){CAL.m+=12;CAL.y--}while(CAL.m>11){CAL.m-=12;CAL.y++}calRender()};
+A.caly=d=>{if(!CAL)return;CAL.y+=+d;calRender()};
+A.calt=()=>{if(!CAL)return;const n=new Date();CAL={y:n.getFullYear(),m:n.getMonth()};calRender()};
+A.cald=k=>{const el=document.getElementById('cinfo');if(!el)return;const e=calData()[k],[y,mo,d]=k.split('-').map(Number);
+let h=`<b>${new Date(y,mo-1,d).toLocaleDateString(calLoc(),{weekday:'long',day:'numeric',month:'long',year:'numeric'})}</b>`;
+if(!e)h+='<div class="mut">لا توجد دراسة مسجّلة في هذا اليوم.</div>';else h+=`<div class="rw"><b>${e.m} د</b><span class="mut">عدد الجلسات: ${e.n}${e.m>=30?' · ✦ نجمة الاستمرار':''}</span></div>`+Object.keys(e.s).map(id=>`<div class="rw"><span>${esc(sub(id).name||'—')}</span><b>${e.s[id].m} د</b></div>${e.s[id].t.length?`<div class="mut">${esc(e.s[id].t.join(' · '))}</div>`:''}`).join('');
+el.innerHTML=tl(h)};
 /* init */
 S.recs.forEach(r=>{if(r.title===undefined){r.title='تسجيل '+r.num;r.method='audio'}});
 if(S.day&&S.day.date!=today())S.day=null;
