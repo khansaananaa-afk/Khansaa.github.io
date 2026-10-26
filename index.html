@@ -8,6 +8,7 @@
 <title>Study Buddy — رفيق الدراسة</title>
 <title>Study Buddy — رفيق الدراسة</title>
 <title>Study Buddy — رفيق الدراسة</title>
+<title>Study Buddy — رفيق الدراسة</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -67,7 +68,7 @@ summary{cursor:pointer;color:var(--pk);font-weight:700;padding:8px 0}details{mar
 .qb{width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.16);color:inherit;display:grid;place-items:center;padding:0}.qb.big{width:60px;height:60px;background:var(--star);color:#17264B}
 #qr{position:fixed;inset:0;z-index:15;background:var(--bg);color:var(--ink);overflow:auto;padding:calc(env(safe-area-inset-top,0px) + 8px) 14px calc(20px + env(safe-area-inset-bottom,0px))}#qr .cht{display:flex;align-items:center;gap:8px;margin-bottom:6px}#qr .sfb{background:var(--pk2);color:var(--ink);border:1px solid var(--ln);width:40px;height:40px;font-size:18px;margin:0}.qtt{font:600 22px var(--fd)}
 #qr .qb{background:var(--pk2);color:var(--ink);border:1px solid var(--ln)}#qr .qb.big{background:var(--star);color:#17264B;border:0}.qnow{font:600 26px var(--fd);text-align:center}.qpr{display:flex;align-items:center;gap:8px}.qpr input{flex:1;margin:0;padding:0;min-height:32px}.qc{display:flex;justify-content:center;align-items:center;gap:16px;margin:8px 0}
-.qi{display:flex;gap:12px;align-items:center;width:100%;text-align:start;padding:12px 14px;margin:4px 0;border-radius:14px;border:1px solid var(--ln);background:var(--card);color:var(--ink);font:inherit}.qi.on{background:var(--pk);color:var(--onpk)}.qi.on .mut{color:var(--onpk)}.qi .mut{min-width:26px}</style></head><body>
+.qi{display:flex;gap:12px;align-items:center;width:100%;text-align:start;padding:12px 14px;margin:4px 0;border-radius:14px;border:1px solid var(--ln);background:var(--card);color:var(--ink);font:inherit}.qi.on{background:var(--pk);color:var(--onpk)}.qi.on .mut{color:var(--onpk)}.qi .mut{min-width:26px}.qrow{display:flex;gap:6px;align-items:stretch}.qrow .qi{flex:1}.qrow.qo .qi{opacity:.45}.qd{width:48px;margin:4px 0;border-radius:14px;border:1px solid var(--ln);background:var(--card);color:var(--ink);font:inherit;font-size:20px}.qd.ok{color:var(--ok);font-weight:700}</style></head><body>
 <svg class="sky" viewBox="0 0 400 240" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><g fill="none" stroke="var(--sw)" stroke-width="1.6" stroke-linecap="round"><path d="M-10 150c60-70 120 30 190-20s90-80 150-30s60 20 80 0"/><path d="M-10 178c70-60 130 40 200-10s100-70 220-20"/><path d="M30 60c40-40 90 10 80 50s-60 40-60 5 40-45 70-30"/><path d="M250 70c30-30 70-10 70 20s-40 35-50 10 20-30 40-18"/></g><g fill="var(--star)"><path d="M330 28l4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/><path d="M70 20l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><path d="M180 44l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5z"/><circle cx="370" cy="110" r="2"/><circle cx="20" cy="120" r="2"/></g></svg><header><b><svg width="20" height="20" viewBox="0 0 24 24" style="vertical-align:-3px;fill:var(--star)"><path d="M12 1l2.5 8.5L23 12l-8.5 2.5L12 23l-2.5-8.5L1 12l8.5-2.5z"/></svg> Study Buddy</b><span class="hr"><button id="qb0" data-a="q" aria-label="القرآن الكريم">♪</button><button id="stk" data-a="stkinfo"><i>✦</i> <span id="stkn">0</span></button><button id="clk" data-a="clock"></button></span></header>
 <main id="app"></main>
 <nav><button data-a="go:home"><span>⌂</span>الرئيسية</button><button data-a="go:plan"><span>▤</span>الجدول</button><button data-a="go:session"><span>◷</span>الجلسة</button><button data-a="go:subs"><span>❏</span>المواد</button><button data-a="go:stats"><span>✧</span>إنجازاتي</button><button data-a="go:set"><span>⚙︎</span>الإعدادات</button></nav>
@@ -122,7 +123,27 @@ A.mx=()=>{$('#md').hidden=true;M=null;after=null};
 A.mok=()=>{const f=M;if(f&&f()===false)return;if(M===f)A.mx()};
 document.addEventListener('click',e=>{const t=e.target.closest('[data-a]');if(!t)return;const[a,...p]=t.dataset.a.split(':');if(e.target.id=='md')return;A[a]&&A[a](...p)});
 document.addEventListener('change',e=>{const k=e.target.dataset.set;if(!k)return;const x=e.target.value;S.set[k]=k=='theme'||k=='lang'?x:k=='end'?(parse(x)||1350):+x;theme();render()});
-const TRS=`القرآن الكريم¦Holy Quran
+const TRS=`المحمّل: ¦Downloaded: 
+ سورة · ¦ surahs · 
+ ميغابايت¦ MB
+هذه السورة غير محمّلة. حمّلها أولاً للاستماع بدون إنترنت.¦This surah isn’t downloaded. Download it first to listen offline.
+تم تنزيل السورة للاستماع بدون إنترنت.¦Downloaded for offline listening.
+تعذر التنزيل. تحقق من الاتصال وحاول مرة أخرى.¦Download failed. Check your connection and try again.
+لا يوجد اتصال بالإنترنت للتنزيل.¦No internet connection to download.
+توقف التنزيل. تحقق من الاتصال ثم حاول مجدداً.¦Download stopped. Check your connection and try again.
+تنزيل الكل للاستماع بدون إنترنت¦Download all for offline listening
+حذف التنزيلات¦Delete downloads
+جارٍ التنزيل ¦Downloading 
+ · إيقاف¦ · Stop
+تنزيل كل السور؟¦Download all surahs?
+تنزيل كل السور قد يحتاج مئات الميغابايت أو أكثر من جيجابايت من المساحة. يُفضّل استخدام شبكة Wi‑Fi.¦Downloading every surah can take hundreds of MB or more than 1 GB of space. Wi‑Fi is recommended.
+ابدأ التنزيل¦Start download
+حذف التنزيل؟¦Delete this download?
+حذف كل التنزيلات؟¦Delete all downloads?
+ستُحذف السور المحمّلة من هذا الجهاز.¦The downloaded surahs will be deleted from this device.
+aria-label="تنزيل للاستماع بدون إنترنت"¦aria-label="Download for offline listening"
+aria-label="إغلاق المشغّل"¦aria-label="Close player"
+القرآن الكريم¦Holy Quran
 سورة ¦Surah 
 اختيار سورة للتشغيل¦Choose a surah to play
 >القارئ<¦>Reciter<
@@ -132,7 +153,7 @@ placeholder="بحث عن سورة"¦placeholder="Search for a surah"
 إيقاف بعد السورة¦Stop after surah
 تلاوة هذا القارئ غير متوفرة، تم التحويل إلى العفاسي¦This reciter’s recitation isn’t available; switched to Alafasy
 تعذر تشغيل الصوت. تحقق من الاتصال بالإنترنت¦Couldn’t play the audio. Check your internet connection
-الاستماع يحتاج إلى اتصال بالإنترنت.¦Listening needs an internet connection.
+حمّل السور بزر ↓ لتسمعها بدون إنترنت.¦Use the ↓ button to download surahs and listen without internet.
 aria-label="تشغيل / إيقاف"¦aria-label="Play / pause"
 aria-label="التالي"¦aria-label="Next"
 aria-label="السابق"¦aria-label="Previous"
@@ -465,7 +486,7 @@ placeholder="اسم المادة"¦placeholder="Subject name"
  مهمة/مهام إلى الأيام القادمة لعدم كفاية وقت اليوم.¦ task(s) to upcoming days: not enough time today.`;const TR=TRS.split('\n').map(l=>l.split('¦')).sort((a,b)=>b[0].length-a[0].length);
 function tl(h){if(S.set.lang!='en')return h;for(const[a,e] of TR)h=h.split(a).join(e);return h.replace(/(\d)\s?د(?![\u0600-\u06FF])/g,'$1 min')}
 const NAV0=$('nav').innerHTML;
-function theme(){const r=document.documentElement,en=S.set.lang=='en';S.set.theme?r.setAttribute('data-theme',S.set.theme):r.removeAttribute('data-theme')+`<p class="mut" style="text-align:center">الإصدار: 13 ✦ مجرّتي</p>`;r.lang=en?'en':'ar';r.dir=en?'ltr':'rtl';$('nav').innerHTML=tl(NAV0);{const m=document.querySelector('meta[name=theme-color]'),dk=S.set.theme=='dark'||(!S.set.theme&&matchMedia('(prefers-color-scheme: dark)').matches);if(m)m.content=dk?'#17264B':'#F8F5ED'}document.title=en?'Study Buddy':'Study Buddy — رفيق الدراسة'}
+function theme(){const r=document.documentElement,en=S.set.lang=='en';S.set.theme?r.setAttribute('data-theme',S.set.theme):r.removeAttribute('data-theme')+`<p class="mut" style="text-align:center">الإصدار: 14 ✦ مجرّتي</p>`;r.lang=en?'en':'ar';r.dir=en?'ltr':'rtl';$('nav').innerHTML=tl(NAV0);{const m=document.querySelector('meta[name=theme-color]'),dk=S.set.theme=='dark'||(!S.set.theme&&matchMedia('(prefers-color-scheme: dark)').matches);if(m)m.content=dk?'#17264B':'#F8F5ED'}document.title=en?'Study Buddy':'Study Buddy — رفيق الدراسة'}
 const V={};
 function render(){skyCheck();stkCheck();save();$('#app').innerHTML=tl((V[S.view]||V.home)());$('#clk').textContent=fmt(now());{const b=$('#stk');$('#stkn').textContent=streak();b.classList.toggle('on',dayMin(iso())>=30);if(b.setAttribute)b.setAttribute('aria-label',tl('سلسلة الدراسة'));const q0=$('#qb0');if(q0&&q0.setAttribute)q0.setAttribute('aria-label',tl('القرآن الكريم'))}document.querySelectorAll('nav button').forEach(n=>n.classList.toggle('on',n.dataset.a=='go:'+S.view))}
 A.go=x=>{S.view=x;if(x=='setup')initW();render();scrollTo(0,0)};
@@ -672,40 +693,62 @@ el.innerHTML=tl(h)};
 /* quran player */
 const SUR='الفاتحة,البقرة,آل عمران,النساء,المائدة,الأنعام,الأعراف,الأنفال,التوبة,يونس,هود,يوسف,الرعد,إبراهيم,الحجر,النحل,الإسراء,الكهف,مريم,طه,الأنبياء,الحج,المؤمنون,النور,الفرقان,الشعراء,النمل,القصص,العنكبوت,الروم,لقمان,السجدة,الأحزاب,سبأ,فاطر,يس,الصافات,ص,الزمر,غافر,فصلت,الشورى,الزخرف,الدخان,الجاثية,الأحقاف,محمد,الفتح,الحجرات,ق,الذاريات,الطور,النجم,القمر,الرحمن,الواقعة,الحديد,المجادلة,الحشر,الممتحنة,الصف,الجمعة,المنافقون,التغابن,الطلاق,التحريم,الملك,القلم,الحاقة,المعارج,نوح,الجن,المزمل,المدثر,القيامة,الإنسان,المرسلات,النبأ,النازعات,عبس,التكوير,الانفطار,المطففين,الانشقاق,البروج,الطارق,الأعلى,الغاشية,الفجر,البلد,الشمس,الليل,الضحى,الشرح,التين,العلق,القدر,البينة,الزلزلة,العاديات,القارعة,التكاثر,العصر,الهمزة,الفيل,قريش,الماعون,الكوثر,الكافرون,النصر,المسد,الإخلاص,الفلق,الناس'.split(',');
 const RC=[['ar.alafasy','مشاري العفاسي',128],['ar.husary','محمود خليل الحصري',128],['ar.minshawi','محمد صديق المنشاوي',128],['ar.sudais','عبد الرحمن السديس',192],['ar.shuraim','سعود الشريم',128],['ar.abdulbasit','عبد الباسط عبد الصمد',192],['ar.hudhaify','علي الحذيفي',128],['ar.ajamy','أحمد العجمي',128],['ar.muhammadayoub','محمد أيوب',128]];
-let QA=null,QR=null,QM=null,QS='';
-const qst=()=>S.qr||(S.qr={i:0,rep:'all',rc:'ar.alafasy'}),rcOf=id=>RC.find(x=>x[0]==id)||RC[0];
+let QA=null,QR=null,QM=null,QS='',QH=false,QU=null,QAll=null;const QD=new Map(),QP=new Set();
+const qst=()=>S.qr||(S.qr={i:0,rep:'all',rc:'ar.alafasy'}),rcOf=id=>RC.find(x=>x[0]==id)||RC[0],qkey=(n,rc)=>rc+':'+n;
 const qurl=(n,rc)=>{const r=rcOf(rc);return`https://cdn.islamic.network/quran/audio-surah/${r[2]}/${r[0]}/${n}.mp3`};
 const qnorm=t=>String(t).replace(/[أإآٱ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/[\u064B-\u0652]/g,'');
 const ic=d=>`<svg viewBox="0 0 24 24" width="26" height="26"><path d="${d}" fill="currentColor"/></svg>`,QI={p:ic('M8 5v14l11-7z'),z:ic('M6 5h4v14H6zM14 5h4v14h-4z'),n:ic('M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z'),b:ic('M6 6h2v12H6zM9.5 12l8.5 6V6z')};
-const qplay=()=>!!QA&&!QA.paused&&!QA.ended,fT=t=>{t=Math.max(0,Math.floor(t||0));return Math.floor(t/60)+':'+String(t%60).padStart(2,'0')};
+const qplay=()=>!!QA&&!QA.paused&&!QA.ended,fT=t=>{t=Math.max(0,Math.floor(t||0));return Math.floor(t/60)+':'+String(t%60).padStart(2,'0')},offl=()=>navigator.onLine===false;
+/* offline storage (IndexedDB blobs) */
+let QDB={db:null,open(){return this.db||(this.db=new Promise((res,rej)=>{const r=indexedDB.open('sbq',1);r.onupgradeneeded=()=>r.result.createObjectStore('a');r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)}))},
+async tx(m,f){const d=await this.open();return new Promise((res,rej)=>{const t=d.transaction('a',m),o=f(t.objectStore('a'));t.oncomplete=()=>res(o&&o.result);t.onerror=()=>rej(t.error)})},
+get(k){return this.tx('readonly',x=>x.get(k))},put(k,b){return this.tx('readwrite',x=>x.put(b,k))},del(k){return this.tx('readwrite',x=>x.delete(k))},
+async list(){const d=await this.open();return new Promise((res,rej)=>{const o=[],c=d.transaction('a').objectStore('a').openCursor();c.onsuccess=()=>{const x=c.result;if(x){o.push([x.key,x.value&&x.value.size||0]);x.continue()}else res(o)};c.onerror=()=>rej(c.error)})}};
+function qLoad(){try{QDB.list().then(a=>{QD.clear();a.forEach(([k,z])=>QD.set(k,z));qui()}).catch(()=>{})}catch(e){}}
+const qstat=()=>{let z=0;QD.forEach(v=>z+=v);return`المحمّل: ${QD.size} سورة · ${Math.round(z/1048576)} ميغابايت`};
+async function qDl(n,rc){const k=qkey(n,rc);if(QD.has(k))return true;if(QP.has(k))return false;QP.add(k);qlr();let ok=false;
+try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist()}catch(e){}
+for(const u of[qurl(n,rc),`https://api.islamic.app/v1/audio/surah/${rc}/${n}`]){try{const r=await fetch(u,{mode:'cors'});if(!r.ok)continue;const b=await r.blob();if(!b||b.size<30000)continue;await QDB.put(k,b);QD.set(k,b.size);ok=true;break}catch(e){}}
+QP.delete(k);qlr();return ok}
+async function qSrc(n){const q=qst();try{const b=await QDB.get(qkey(n,q.rc));if(b){if(QU&&URL.revokeObjectURL)URL.revokeObjectURL(QU);QU=URL.createObjectURL(b);return QU}}catch(e){}return qurl(n,q.rc)}
+const qStep=(i,d)=>{const q=qst();if(!i)return 1;for(let k=1;k<=114;k++){const j=((i-1+d*k)%114+114)%114+1;if(!offl()||QD.has(qkey(j,q.rc)))return j}return 0};
 function qa(){if(QA)return QA;QA=new Audio();QA.preload='none';
-QA.addEventListener('ended',()=>{const q=qst();if(q.rep=='one')qPlay(q.i);else if(q.rep=='all')qPlay(q.i%114+1);else qui()});
+QA.addEventListener('ended',()=>{const q=qst();if(q.rep=='one')qPlay(q.i);else if(q.rep=='all'){const j=qStep(q.i,1);j?qPlay(j):qui()}else qui()});
 QA.addEventListener('timeupdate',qprog);QA.addEventListener('play',qui);QA.addEventListener('pause',qui);
-QA.addEventListener('error',()=>{const q=qst();if(!q.i)return;if(q.rc!='ar.alafasy'&&!QA.fb){QA.fb=1;q.rc='ar.alafasy';save();toast('تلاوة هذا القارئ غير متوفرة، تم التحويل إلى العفاسي');qPlay(q.i,1)}else toast('تعذر تشغيل الصوت. تحقق من الاتصال بالإنترنت')});
+QA.addEventListener('error',()=>{const q=qst();if(!q.i)return;if(offl())return toast('هذه السورة غير محمّلة. حمّلها أولاً للاستماع بدون إنترنت.');if(q.rc!='ar.alafasy'&&!QA.fb&&!/^blob:/.test(QA.src||'')){QA.fb=1;q.rc='ar.alafasy';save();toast('تلاوة هذا القارئ غير متوفرة، تم التحويل إلى العفاسي');qPlay(q.i,1)}else toast('تعذر تشغيل الصوت. تحقق من الاتصال بالإنترنت')});
 try{const m=navigator.mediaSession;m.setActionHandler('play',()=>QA.play());m.setActionHandler('pause',()=>QA.pause());m.setActionHandler('nexttrack',()=>qNext(1));m.setActionHandler('previoustrack',()=>qNext(-1))}catch(e){}
 return QA}
-function qPlay(n,keep){const q=qst(),a=qa();if(!keep)a.fb=0;q.i=n;a.src=qurl(n,q.rc);const p=a.play();if(p&&p.catch)p.catch(()=>{});save();
+async function qPlay(n,keep){const q=qst(),a=qa(),k=qkey(n,q.rc);QH=false;if(!keep)a.fb=0;q.i=n;
+if(!QD.has(k)&&offl()){a.pause();save();qui();return toast('هذه السورة غير محمّلة. حمّلها أولاً للاستماع بدون إنترنت.')}
+a.src=QD.has(k)?await qSrc(n):qurl(n,q.rc);const p=a.play();if(p&&p.catch)p.catch(()=>{});save();
 try{navigator.mediaSession.metadata=new MediaMetadata({title:'سورة '+SUR[n-1],artist:rcOf(q.rc)[1],album:'Study Buddy'})}catch(e){}qui()}
-const qNext=d=>{const q=qst();qPlay(q.i?((q.i-1+d+114)%114)+1:1)};
-function qlist(){const q=qst(),k=qnorm(QS.trim());return SUR.map((n,i)=>[i+1,n]).filter(([i,n])=>!k||String(i)==k||qnorm(n).includes(k)).map(([i,n])=>`<button class="qi${q.i==i?' on':''}" data-a="qp:${i}"><span class="mut">${i}</span><span>سورة ${n}</span></button>`).join('')}
+const qNext=d=>{const q=qst(),j=qStep(q.i,d);j?qPlay(j):toast('هذه السورة غير محمّلة. حمّلها أولاً للاستماع بدون إنترنت.')};
+function qlist(){const q=qst(),k=qnorm(QS.trim());return SUR.map((n,i)=>[i+1,n]).filter(([i,n])=>!k||String(i)==k||qnorm(n).includes(k)).map(([i,n])=>{const key=qkey(i,q.rc),dn=QD.has(key);return`<div class="qrow${offl()&&!dn?' qo':''}"><button class="qi${q.i==i?' on':''}" data-a="qp:${i}"><span class="mut">${i}</span><span>سورة ${n}</span></button><button class="qd${dn?' ok':''}" data-a="qd:${i}" aria-label="تنزيل للاستماع بدون إنترنت">${QP.has(key)?'…':dn?'✓':'↓'}</button></div>`}).join('')}
+function qlr(){if(!QR)return;const l=QR.querySelector('#ql'),t=QR.querySelector('#qst'),b=QR.querySelector('#qda');if(l)l.innerHTML=tl(qlist());if(t)t.textContent=tl(qstat());if(b)b.textContent=tl(QAll?`جارٍ التنزيل ${QAll.d}/114 · إيقاف`:'تنزيل الكل للاستماع بدون إنترنت')}
 function qui(){const q=qst(),pl=qplay();
 if(q.i&&!QM){QM=document.createElement('div');QM.id='qm';document.body.appendChild(QM)}
-if(QM){QM.hidden=!q.i||!!QR;if(q.i)QM.innerHTML=tl(`<span class="qmt" data-a="q">♪ سورة ${SUR[q.i-1]}</span><button class="qb" data-a="qt" aria-label="تشغيل / إيقاف">${pl?QI.z:QI.p}</button><button class="qb" data-a="qn:1" aria-label="التالي">${QI.n}</button>`)}
-try{document.body.classList.toggle('qm',!!q.i&&!QR);const b=document.getElementById('qb0');if(b)b.classList.toggle('on',pl)}catch(e){}
-if(QR){const g=id=>QR.querySelector('#'+id);const pp=g('qpp'),nw=g('qnow'),l=g('ql'),rp=g('qrep');if(pp)pp.innerHTML=pl?QI.z:QI.p;if(nw)nw.textContent=tl(q.i?'سورة '+SUR[q.i-1]:'اختيار سورة للتشغيل');if(l)l.innerHTML=tl(qlist());if(rp)rp.textContent=tl({all:'تشغيل متتابع',one:'تكرار السورة',off:'إيقاف بعد السورة'}[q.rep])}}
+if(QM){QM.hidden=!q.i||!!QR||QH;if(q.i)QM.innerHTML=tl(`<span class="qmt" data-a="q">♪ سورة ${SUR[q.i-1]}</span><button class="qb" data-a="qt" aria-label="تشغيل / إيقاف">${pl?QI.z:QI.p}</button><button class="qb" data-a="qn:1" aria-label="التالي">${QI.n}</button><button class="qb" data-a="qz" aria-label="إغلاق المشغّل">✕</button>`)}
+try{document.body.classList.toggle('qm',!!q.i&&!QR&&!QH);const b=document.getElementById('qb0');if(b)b.classList.toggle('on',pl)}catch(e){}
+if(QR){const g=id=>QR.querySelector('#'+id),pp=g('qpp'),nw=g('qnow'),rp=g('qrep');if(pp)pp.innerHTML=pl?QI.z:QI.p;if(nw)nw.textContent=tl(q.i?'سورة '+SUR[q.i-1]:'اختيار سورة للتشغيل');if(rp)rp.textContent=tl({all:'تشغيل متتابع',one:'تكرار السورة',off:'إيقاف بعد السورة'}[q.rep]);qlr()}}
 function qprog(){if(!QR||!QA)return;const g=id=>QR.querySelector('#'+id),s=g('qp'),d=QA.duration||0;if(!s)return;if(d&&!isFinite(d))return;if(d)s.value=Math.round(QA.currentTime/d*1000);g('qt1').textContent=fT(QA.currentTime);g('qt2').textContent=fT(d)}
 A.q=()=>{if(QR)return;const q=qst();QR=document.createElement('div');QR.id='qr';
-QR.innerHTML=tl(`<div class="cht"><button class="sfb" data-a="qx" aria-label="إغلاق">✕</button><b class="qtt">القرآن الكريم</b></div><div class="card"><div class="qnow" id="qnow">${q.i?'سورة '+SUR[q.i-1]:'اختيار سورة للتشغيل'}</div><div dir="ltr" class="qpr"><span id="qt1" class="mut">0:00</span><input type="range" id="qp" min="0" max="1000" value="0"><span id="qt2" class="mut">0:00</span></div><div dir="ltr" class="qc"><button class="qb" data-a="qn:-1" aria-label="السابق">${QI.b}</button><button class="qb big" id="qpp" data-a="qt" aria-label="تشغيل / إيقاف">${qplay()?QI.z:QI.p}</button><button class="qb" data-a="qn:1" aria-label="التالي">${QI.n}</button></div><div style="text-align:center"><button class="chip" data-a="qrep" id="qrep">${{all:'تشغيل متتابع',one:'تكرار السورة',off:'إيقاف بعد السورة'}[q.rep]}</button></div><label>القارئ</label><select id="qrs">${RC.map(r=>`<option value="${r[0]}" ${r[0]==q.rc?'selected':''}>${r[1]}</option>`).join('')}</select><div class="mut">الاستماع يحتاج إلى اتصال بالإنترنت.</div></div><input id="qs" placeholder="بحث عن سورة" value="${esc(QS)}"><div id="ql">${qlist()}</div>`);
+QR.innerHTML=tl(`<div class="cht"><button class="sfb" data-a="qx" aria-label="إغلاق">✕</button><b class="qtt">القرآن الكريم</b></div><div class="card"><div class="qnow" id="qnow">${q.i?'سورة '+SUR[q.i-1]:'اختيار سورة للتشغيل'}</div><div dir="ltr" class="qpr"><span id="qt1" class="mut">0:00</span><input type="range" id="qp" min="0" max="1000" value="0"><span id="qt2" class="mut">0:00</span></div><div dir="ltr" class="qc"><button class="qb" data-a="qn:-1" aria-label="السابق">${QI.b}</button><button class="qb big" id="qpp" data-a="qt" aria-label="تشغيل / إيقاف">${qplay()?QI.z:QI.p}</button><button class="qb" data-a="qn:1" aria-label="التالي">${QI.n}</button></div><div style="text-align:center"><button class="chip" data-a="qrep" id="qrep">${{all:'تشغيل متتابع',one:'تكرار السورة',off:'إيقاف بعد السورة'}[q.rep]}</button></div><label>القارئ</label><select id="qrs">${RC.map(r=>`<option value="${r[0]}" ${r[0]==q.rc?'selected':''}>${r[1]}</option>`).join('')}</select><div class="mut">حمّل السور بزر ↓ لتسمعها بدون إنترنت.</div><div class="rw"><button class="chip" data-a="qda" id="qda">تنزيل الكل للاستماع بدون إنترنت</button><button class="chip" data-a="qdel">حذف التنزيلات</button></div><div class="mut" id="qst">${qstat()}</div></div><input id="qs" placeholder="بحث عن سورة" value="${esc(QS)}"><div id="ql">${qlist()}</div>`);
 document.body.appendChild(QR);try{history.pushState({q:1},'')}catch(e){}qui();qprog();try{const o=QR.querySelector('.qi.on');if(o&&o.scrollIntoView)o.scrollIntoView({block:'center'})}catch(e){}};
 function qClose(){if(QR&&QR.remove)QR.remove();QR=null;qui()}
 A.qx=()=>{qClose();try{if(history.state&&history.state.q)history.back()}catch(e){}};
-addEventListener('popstate',qClose);
-A.qp=n=>qPlay(+n);
-A.qn=d=>qNext(+d);
-A.qt=()=>{const q=qst(),a=qa();if(!q.i)return qPlay(1);if(!a.getAttribute('src'))return qPlay(q.i);if(a.paused){const p=a.play();if(p&&p.catch)p.catch(()=>{})}else a.pause()};
+addEventListener('popstate',qClose);addEventListener('online',qlr);addEventListener('offline',qlr);
+A.qp=n=>qPlay(+n);A.qn=d=>qNext(+d);
+A.qz=()=>{QH=true;if(QA)QA.pause();try{navigator.mediaSession.playbackState='none'}catch(e){}qui()};
+A.qt=()=>{const q=qst(),a=qa();QH=false;if(!q.i)return qPlay(1);if(!a.getAttribute('src'))return qPlay(q.i);if(a.paused){const p=a.play();if(p&&p.catch)p.catch(()=>{})}else a.pause();qui()};
 A.qrep=()=>{const q=qst();q.rep={all:'one',one:'off',off:'all'}[q.rep]||'all';save();qui()};
-document.addEventListener('input',e=>{const t=e.target;if(t.id=='qs'){QS=t.value;if(QR){const l=QR.querySelector('#ql');if(l)l.innerHTML=tl(qlist())}}else if(t.id=='qp'&&QA&&QA.duration&&isFinite(QA.duration))QA.currentTime=QA.duration*t.value/1000});
-document.addEventListener('change',e=>{if(e.target.id=='qrs'){const q=qst();q.rc=e.target.value;save();if(q.i&&qplay())qPlay(q.i)}});
+A.qd=async n=>{const q=qst(),k=qkey(+n,q.rc);if(QD.has(k))return modal('حذف التنزيل؟',`<p>ستُحذف سورة ${SUR[n-1]} من هذا الجهاز.</p>`,'حذف',async()=>{try{await QDB.del(k)}catch(e){}QD.delete(k);qlr()});
+if(offl())return toast('لا يوجد اتصال بالإنترنت للتنزيل.');const ok=await qDl(+n,q.rc);toast(ok?'تم تنزيل السورة للاستماع بدون إنترنت.':'تعذر التنزيل. تحقق من الاتصال وحاول مرة أخرى.')};
+A.qda=()=>{if(QAll){QAll.on=false;return}if(offl())return toast('لا يوجد اتصال بالإنترنت للتنزيل.');
+modal('تنزيل كل السور؟','<p>تنزيل كل السور قد يحتاج مئات الميغابايت أو أكثر من جيجابايت من المساحة. يُفضّل استخدام شبكة Wi‑Fi.</p>','ابدأ التنزيل',()=>{(async()=>{const q=qst(),rc=q.rc;QAll={on:true,d:0};let bad=0;for(let n=1;n<=114&&QAll.on;n++){if(QD.has(qkey(n,rc))){QAll.d++;continue}const ok=await qDl(n,rc);if(ok){QAll.d++;bad=0}else if(++bad>=3){toast('توقف التنزيل. تحقق من الاتصال ثم حاول مجدداً.');break}qlr()}QAll=null;qlr()})()})};
+A.qdel=()=>modal('حذف كل التنزيلات؟','<p>ستُحذف السور المحمّلة من هذا الجهاز.</p>','حذف',async()=>{for(const k of[...QD.keys()]){try{await QDB.del(k)}catch(e){}}QD.clear();qlr()});
+document.addEventListener('input',e=>{const t=e.target;if(t.id=='qs'){QS=t.value;qlr()}else if(t.id=='qp'&&QA&&QA.duration&&isFinite(QA.duration))QA.currentTime=QA.duration*t.value/1000});
+document.addEventListener('change',e=>{if(e.target.id=='qrs'){const q=qst();q.rc=e.target.value;save();if(q.i&&qplay())qPlay(q.i);qlr()}});
+qLoad();
 /* init */
 S.recs.forEach(r=>{if(r.title===undefined){r.title='تسجيل '+r.num;r.method='audio'}});
 if(S.day&&S.day.date!=today())S.day=null;
