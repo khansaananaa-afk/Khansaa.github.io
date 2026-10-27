@@ -10,6 +10,7 @@
 <title>Study Buddy — رفيق الدراسة</title>
 <title>Study Buddy — رفيق الدراسة</title>
 <title>Study Buddy — رفيق الدراسة</title>
+<title>Study Buddy — رفيق الدراسة</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -74,7 +75,7 @@ summary{cursor:pointer;color:var(--pk);font-weight:700;padding:8px 0}details{mar
 #bgs{flex:1;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center}.bgsv{width:min(78vw,60vh);height:auto}.bgl{margin-top:14px;font:600 26px var(--fd);text-align:center;min-height:36px;padding:0 16px}.bgl.big{font-size:24px;line-height:1.5;min-height:80px}
 .bgcv{position:absolute;inset:0;width:100%;height:100%;touch-action:none}.bgbx{position:absolute;inset:0}.bbl{position:absolute;bottom:-110px;border-radius:50%;border:1.5px solid rgba(169,184,213,.7);background:radial-gradient(circle at 30% 30%,rgba(248,245,237,.5),rgba(111,156,203,.18));padding:0;animation:rise linear forwards}.bbl.pop{animation-play-state:paused;scale:1.5;opacity:0;transition:scale .3s,opacity .3s}@keyframes rise{to{transform:translateY(-125vh)}}
 .bgcard{width:min(88vw,420px);text-align:center;display:flex;flex-direction:column;gap:12px;align-items:center}.bgp{animation:bgp 1.6s ease-in-out infinite}@keyframes bgp{50%{r:4.2px;opacity:.6}}
-#bgm .bar{width:100%;background:rgba(255,255,255,.15)}#bgm .bar i{background:#F5C451}#bgm .mut{color:#A9B8D5}.bgw{text-align:center;padding:10px 10px calc(10px + env(safe-area-inset-bottom,0px));min-height:44px;color:#F5C451}</style></head><body>
+#bgm .bar{width:100%;background:rgba(255,255,255,.15)}#bgm .bar i{background:#F5C451}#bgm .mut{color:#A9B8D5}.bgw{text-align:center;padding:10px 10px calc(10px + env(safe-area-inset-bottom,0px));min-height:44px;color:#F5C451}.bgi{display:flex;justify-content:center;gap:10px;margin:12px 0 4px}.bgi button{width:54px;height:54px;border-radius:16px;border:1px solid var(--ln);background:var(--pk2);color:var(--ink);display:grid;place-items:center;padding:0}.tpc{margin:6px 0;padding:10px;border-radius:12px;background:var(--pk2);border:1px solid var(--ln);font:600 13px monospace;word-break:break-all;user-select:text}</style></head><body>
 <svg class="sky" viewBox="0 0 400 240" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><g fill="none" stroke="var(--sw)" stroke-width="1.6" stroke-linecap="round"><path d="M-10 150c60-70 120 30 190-20s90-80 150-30s60 20 80 0"/><path d="M-10 178c70-60 130 40 200-10s100-70 220-20"/><path d="M30 60c40-40 90 10 80 50s-60 40-60 5 40-45 70-30"/><path d="M250 70c30-30 70-10 70 20s-40 35-50 10 20-30 40-18"/></g><g fill="var(--star)"><path d="M330 28l4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/><path d="M70 20l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><path d="M180 44l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5z"/><circle cx="370" cy="110" r="2"/><circle cx="20" cy="120" r="2"/></g></svg><header><b><svg width="20" height="20" viewBox="0 0 24 24" style="vertical-align:-3px;fill:var(--star)"><path d="M12 1l2.5 8.5L23 12l-8.5 2.5L12 23l-2.5-8.5L1 12l8.5-2.5z"/></svg> Study Buddy</b><span class="hr"><button id="qb0" data-a="q" aria-label="القرآن الكريم">♪</button><button id="stk" data-a="stkinfo"><i>✦</i> <span id="stkn">0</span></button><button id="clk" data-a="clock"></button></span></header>
 <main id="app"></main>
 <nav><button data-a="go:home"><span>⌂</span>الرئيسية</button><button data-a="go:plan"><span>▤</span>الجدول</button><button data-a="go:session"><span>◷</span>الجلسة</button><button data-a="go:subs"><span>❏</span>المواد</button><button data-a="go:stats"><span>✧</span>إنجازاتي</button><button data-a="go:set"><span>⚙︎</span>الإعدادات</button></nav>
@@ -82,7 +83,7 @@ summary{cursor:pointer;color:var(--pk);font-weight:700;padding:8px 0}details{mar
 <script>
 const $=s=>document.querySelector(s),v=id=>document.getElementById(id).value,esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const uid=()=>Math.random().toString(36).slice(2,8),DN=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],PR=['','عالية','متوسطة','منخفضة'],DF=['','سهل','متوسط','صعب'],STL={todo:'لم أبدأ',doing:'قيد الدراسة',done:'مكتمل'};
-const DEF={subs:[],recs:[],set:{study:15,brk:5,long:20,every:3,fmt:24,end:1350,theme:'',lang:'ar',bg:'rot'},day:null,log:[],off:0,timer:null,xb:null,view:'home'};
+const DEF={subs:[],recs:[],set:{study:15,brk:5,long:20,every:3,fmt:24,end:1350,theme:'',lang:'ar'},day:null,log:[],off:0,timer:null,xb:null,view:'home'};
 let S,saveOK=true,W=null,M=null,after=null;
 let KEY,REG,CP;
 try{REG=JSON.parse(localStorage.getItem('sb_reg'))}catch(e){}
@@ -129,7 +130,29 @@ A.mx=()=>{$('#md').hidden=true;M=null;after=null};
 A.mok=()=>{const f=M;if(f&&f()===false)return;if(M===f)A.mx()};
 document.addEventListener('click',e=>{const t=e.target.closest('[data-a]');if(!t)return;const[a,...p]=t.dataset.a.split(':');if(e.target.id=='md')return;A[a]&&A[a](...p)});
 document.addEventListener('change',e=>{const k=e.target.dataset.set;if(!k)return;const x=e.target.value;S.set[k]=k=='theme'||k=='lang'||k=='bg'?x:k=='end'?(parse(x)||1350):+x;theme();render()});
-const TRS=`تنفّس بالنجمة¦Star breathing
+const TRS=`نشاط للاستراحة (اختياري). يُغلق تلقائياً عند انتهاء الاستراحة.¦A break activity (optional). It closes automatically when the break ends.
+إشعارات الجوال¦Phone notifications
+للتنبيه عند نهاية الجلسة ونهاية الاستراحة.¦To alert you when a session or break ends.
+إشعار المتصفح: ¦Browser notification: 
+مفعّل¦On
+معطّل¦Off
+يعمل غالباً ما دام التطبيق مفتوحاً أو في الخلفية، لكن أندرويد قد يوقفه عند إغلاق التطبيق.¦Usually works while the app is open or in the background, but Android may stop it once the app is closed.
+إشعار خارج التطبيق (ntfy): ¦Outside-the-app notification (ntfy): 
+1) ثبّت تطبيق ntfy (من Google Play أو F-Droid).¦1) Install the ntfy app (from Google Play or F-Droid).
+2) اشترك في القناة التالية:¦2) Subscribe to this channel:
+>نسخ<¦>Copy<
+فتح في ntfy¦Open in ntfy
+اختبار الإشعار¦Test notification
+اسم القناة سرّي، والرسائل نص عام بدون بياناتك. تُرسَل عبر خدمة ntfy.sh (طرف ثالث).¦The channel name is secret and messages are generic text without your data. They are sent through the ntfy.sh service (a third party).
+هذا المتصفح لا يدعم الإشعارات¦This browser doesn’t support notifications
+لم يُسمح بالإشعارات¦Notifications weren’t allowed
+تم نسخ اسم القناة¦Channel name copied
+أُرسل الإشعار التجريبي¦Test notification sent
+تعذر الإرسال. تحقق من الاتصال.¦Couldn’t send. Check your connection.
+إشعار تجريبي: إذا ظهر هذا فالتنبيهات تعمل.¦Test: if you see this, notifications work.
+انتهت جلسة الدراسة. حان وقت تسجيل ما أنجزته والاستراحة.¦Study session finished. Time to log what you did and take a break.
+انتهت الاستراحة. حان وقت العودة.¦Break finished. Time to get back.
+تنفّس بالنجمة¦Star breathing
 رسم الدوّامة¦Swirl drawing
 فقاعات هادئة¦Calm bubbles
 ربط النجوم¦Connect the stars
@@ -518,9 +541,9 @@ placeholder="اسم المادة"¦placeholder="Subject name"
  مهمة/مهام إلى الأيام القادمة لعدم كفاية وقت اليوم.¦ task(s) to upcoming days: not enough time today.`;const TR=TRS.split('\n').map(l=>l.split('¦')).sort((a,b)=>b[0].length-a[0].length);
 function tl(h){if(S.set.lang!='en')return h;for(const[a,e] of TR)h=h.split(a).join(e);return h.replace(/(\d)\s?د(?![\u0600-\u06FF])/g,'$1 min')}
 const NAV0=$('nav').innerHTML;
-function theme(){const r=document.documentElement,en=S.set.lang=='en';S.set.theme?r.setAttribute('data-theme',S.set.theme):r.removeAttribute('data-theme')+`<p class="mut" style="text-align:center">الإصدار: 15 ✦ مجرّتي</p>`;r.lang=en?'en':'ar';r.dir=en?'ltr':'rtl';$('nav').innerHTML=tl(NAV0);{const m=document.querySelector('meta[name=theme-color]'),dk=S.set.theme=='dark'||(!S.set.theme&&matchMedia('(prefers-color-scheme: dark)').matches);if(m)m.content=dk?'#17264B':'#F8F5ED'}document.title=en?'Study Buddy':'Study Buddy — رفيق الدراسة'}
+function theme(){const r=document.documentElement,en=S.set.lang=='en';S.set.theme?r.setAttribute('data-theme',S.set.theme):r.removeAttribute('data-theme')+`<p class="mut" style="text-align:center">الإصدار: 16 ✦ مجرّتي</p>`;r.lang=en?'en':'ar';r.dir=en?'ltr':'rtl';$('nav').innerHTML=tl(NAV0);{const m=document.querySelector('meta[name=theme-color]'),dk=S.set.theme=='dark'||(!S.set.theme&&matchMedia('(prefers-color-scheme: dark)').matches);if(m)m.content=dk?'#17264B':'#F8F5ED'}document.title=en?'Study Buddy':'Study Buddy — رفيق الدراسة'}
 const V={};
-function render(){skyCheck();stkCheck();save();$('#app').innerHTML=tl((V[S.view]||V.home)());$('#clk').textContent=fmt(now());{const b=$('#stk');$('#stkn').textContent=streak();b.classList.toggle('on',dayMin(iso())>=30);if(b.setAttribute)b.setAttribute('aria-label',tl('سلسلة الدراسة'));const q0=$('#qb0');if(q0&&q0.setAttribute)q0.setAttribute('aria-label',tl('القرآن الكريم'))}document.querySelectorAll('nav button').forEach(n=>n.classList.toggle('on',n.dataset.a=='go:'+S.view))}
+function render(){skyCheck();stkCheck();save();ntSync();$('#app').innerHTML=tl((V[S.view]||V.home)());$('#clk').textContent=fmt(now());{const b=$('#stk');$('#stkn').textContent=streak();b.classList.toggle('on',dayMin(iso())>=30);if(b.setAttribute)b.setAttribute('aria-label',tl('سلسلة الدراسة'));const q0=$('#qb0');if(q0&&q0.setAttribute)q0.setAttribute('aria-label',tl('القرآن الكريم'))}document.querySelectorAll('nav button').forEach(n=>n.classList.toggle('on',n.dataset.a=='go:'+S.view))}
 A.go=x=>{S.view=x;if(x=='setup')initW();render();scrollTo(0,0)};
 /* home */
 V.home0=()=>{const D=S.day,b=cur(),ad=LS().length?'<button class="btn g" data-a="addS">+ إضافة مادة</button>':'';
@@ -566,7 +589,7 @@ A.brk=()=>modal('كم دقيقة استراحة؟','<div class="grid">'+[5,10,15
 A.xb=m=>{A.mx();const t=S.timer;if(t&&t.run)A.pause();S.xb={x:1,len:+m,left:m*60,run:true,end:Date.now()+m*6e4};S.view='session';render()};
 A.endBrk=()=>{if(S.xb)S.xb=null;else{const b=cur();if(b&&b.type!='study')b.st='done';S.timer=null}render()};
 setInterval(()=>{const t=T();$('#clk').textContent=fmt(now());if(!t||!t.run)return;const l=Math.ceil((t.end-Date.now())/1000);
-if(l<=0){t.left=0;t.run=false;try{navigator.vibrate([300,150,300])}catch(e){}render();const st=!S.xb&&cur()&&cur().type=='study';modal('انتهى الوقت ✦',st?'<p>أحسنت! يمكنك الآن تسجيل ما أنجزته في الجلسة.</p>':'<p>انتهت الاستراحة. الخطوة التالية جاهزة.</p>',st?'تسجيل الجلسة':'تمام',()=>{st?A.fin():A.endBrk()})}
+if(l<=0){t.left=0;t.run=false;lnEnd();try{navigator.vibrate([300,150,300])}catch(e){}render();const st=!S.xb&&cur()&&cur().type=='study';modal('انتهى الوقت ✦',st?'<p>أحسنت! يمكنك الآن تسجيل ما أنجزته في الجلسة.</p>':'<p>انتهت الاستراحة. الخطوة التالية جاهزة.</p>',st?'تسجيل الجلسة':'تمام',()=>{st?A.fin():A.endBrk()})}
 else{t.left=l;const e=$('#tm');if(e)e.textContent=mmss(l)}},500);
 function guard(fn){const t=S.timer,b=cur();if(t&&b&&b.type=='study'&&t.bid==b.id&&b.s!=null&&len(b)*60-t.left>=60){after=fn;A.fin()}else fn()}
 A.fin=()=>{if(S.xb)return A.endBrk();const b=cur();if(!b)return;if(b.type!='study')return A.endBrk();
@@ -636,7 +659,7 @@ return `<h2>إنجازاتي</h2>`+card(`<div class="rw"><span>اليوم</span>
 +card('<b>حسب المادة</b>'+(S.subs.map(s=>`<div class="rw"><span>${esc(s.name)}${s.arch?' (مؤرشفة)':''}</span><span class="mut">${sum(S.log.filter(l=>l.sid==s.id))} د · ${pct(S.recs.filter(r=>r.sid==s.id))}%</span></div>`).join('')||'<p class="mut">لا توجد بيانات بعد.</p>'))+'<p class="mut">كل دقيقة تُحتسب، حتى لو لم ينتهِ كل شيء اليوم.</p>'};
 /* settings */
 const sel=(k,o,u)=>`<label>${o[0]}</label><select data-set="${k}">${o[1].map(x=>`<option value="${x[0]}" ${S.set[k]==x[0]?'selected':''}>${x[1]}</option>`).join('')}</select>`,rng=(a,u)=>a.map(x=>[x,x+' '+u]);
-V.set=()=>`<h2>الإعدادات</h2>`+card(`<b>المساحة الشخصية: ${esc((REG.find(p=>p.id==CP)||{}).name)}</b><p class="mut">لكل مساحة مواد ومهام وسجل وإعدادات خاصة بها. بياناتك محفوظة على هذا المتصفح فقط، ولا تظهر على أجهزة أو متصفحات أخرى، وهي غير محمية بكلمة سر.</p><button class="btn g" data-a="prof">تبديل أو إدارة المساحات</button>`)+breakCard()+card(sel('study',['مدة الدراسة',rng([10,15,20,25],'دقيقة')])+sel('brk',['الاستراحة القصيرة',rng([5,10],'دقائق')])+sel('long',['الاستراحة الطويلة',rng([15,20,30],'دقيقة')])+sel('every',['استراحة طويلة بعد',[[2,'جلستين'],[3,'3 جلسات'],[4,'4 جلسات']]])+sel('fmt',['نظام الوقت',[[24,'24 ساعة'],[12,'12 ساعة']]])+sel('theme',['المظهر',[['','تلقائي'],['light','فاتح'],['dark','داكن']]])+sel('lang',['اللغة',[['ar','العربية'],['en','English']]])+`<label>آخر وقت للدراسة</label><input type="time" data-set="end" value="${tv(S.set.end)}">`)
+V.set=()=>`<h2>الإعدادات</h2>`+card(`<b>المساحة الشخصية: ${esc((REG.find(p=>p.id==CP)||{}).name)}</b><p class="mut">لكل مساحة مواد ومهام وسجل وإعدادات خاصة بها. بياناتك محفوظة على هذا المتصفح فقط، ولا تظهر على أجهزة أو متصفحات أخرى، وهي غير محمية بكلمة سر.</p><button class="btn g" data-a="prof">تبديل أو إدارة المساحات</button>`)+notifCard()+card(sel('study',['مدة الدراسة',rng([10,15,20,25],'دقيقة')])+sel('brk',['الاستراحة القصيرة',rng([5,10],'دقائق')])+sel('long',['الاستراحة الطويلة',rng([15,20,30],'دقيقة')])+sel('every',['استراحة طويلة بعد',[[2,'جلستين'],[3,'3 جلسات'],[4,'4 جلسات']]])+sel('fmt',['نظام الوقت',[[24,'24 ساعة'],[12,'12 ساعة']]])+sel('theme',['المظهر',[['','تلقائي'],['light','فاتح'],['dark','داكن']]])+sel('lang',['اللغة',[['ar','العربية'],['en','English']]])+`<label>آخر وقت للدراسة</label><input type="time" data-set="end" value="${tv(S.set.end)}">`)
 +card(`<b>حفظ البيانات</b><p class="mut">${saveOK?'تُحفظ البيانات تلقائياً على هذا المتصفح (وتُفقد إذا مُسحت بيانات المتصفح). صدّر نسخة احتياطية من وقت لآخر.':'⚠️ التخزين المحلي غير متاح هنا، فلن تُحفظ البيانات. استخدم التصدير لنسخ بياناتك.'}</p><textarea id="ex" placeholder="الصق نسخة محفوظة هنا للاستيراد"></textarea><button class="btn s" data-a="exp">تصدير</button><button class="btn s g" data-a="imp">استيراد</button><button class="btn s g" data-a="rst">مسح كل البيانات</button>`)
 +card('<b>عن المؤقت</b><p class="mut">يعتمد المؤقت على ساعة الجهاز فيبقى دقيقاً حتى لو غادرت الصفحة، لكن لا يوجد صوت أو إشعار والصفحة مغلقة؛ يظهر التنبيه عند فتحها.</p>');
 A.exp=()=>{const o={...S,timer:null,xb:null};$('#ex').value=JSON.stringify(o);try{$('#ex').select();navigator.clipboard.writeText($('#ex').value)}catch(e){}toast('تم التصدير. انسخ النص واحفظه.')};
@@ -784,10 +807,7 @@ qLoad();
 /* break activities */
 const BGL=[['breath','تنفّس بالنجمة'],['swirl','رسم الدوّامة'],['bub','فقاعات هادئة'],['con','ربط النجوم'],['str','تمدد وحركة']];
 let BG=null,BGN=null;const BGD=new Set(),GM={};
-const breakCard=()=>card(sel('bg',['نشاط الاستراحة',[['off','بدون'],['rot','تبديل تلقائي'],...BGL]])+'<p class="mut">يفتح النشاط تلقائياً مع بداية عدّاد الاستراحة ويُغلق فور انتهائه. بدون نقاط ولا خسارة ولا صوت، ويمكن تخطّيه في أي لحظة.</p><button class="btn g" data-a="bgtest">تجربة النشاط الآن</button>');
 const bgBreak=()=>{if(S.xb)return'x'+S.xb.end;const b=cur(),t=S.timer;return b&&t&&b.type!='study'&&t.bid==b.id?b.id:null};
-function bgPick(){const id=S.set.bg;if(!id||id=='off')return null;if(id!='rot')return id;const i=(S.set.bgi||0)%BGL.length;S.set.bgi=i+1;save();return BGL[i][0]}
-function bgMaybe(){const k=bgBreak(),t=T();if(!k||BG||BGD.has(k)||!t||!t.run)return;const g=bgPick();if(!g)return;BGD.add(k);bgOpen(g,k)}
 const bgRem=()=>{if(BG.demo)return Math.ceil((BG.demo-Date.now())/1000);const t=T();if(!t||bgBreak()!==BG.k)return 0;return t.run?Math.ceil((t.end-Date.now())/1000):t.left};
 function bgOpen(g,k,demo){if(BG||!GM[g])return;const el=document.createElement('div');el.id='bgm';const nm=(BGL.find(x=>x[0]==g)||[0,g])[1];
 el.innerHTML=tl(`<div class="bgt"><b>${nm}</b><span id="bgc"></span><button class="chip" data-a="bgx">تخطّي</button></div><div id="bgs"></div><div class="bgw" id="bgw"></div>`);document.body.appendChild(el);
@@ -795,8 +815,10 @@ const st=el.querySelector('#bgs');BG={g,k,el,demo:demo?Date.now()+6e4:0,clean:nu
 function bgTick(){if(!BG)return;const r=bgRem(),c=BG.el.querySelector('#bgc'),w=BG.el.querySelector('#bgw');if(r<=0)return bgClose();if(c)c.textContent=mmss(r);if(w)w.textContent=r<=10?tl('تنتهي الاستراحة بعد ')+r+tl(' ثانية'):''}
 function bgClose(nh){if(!BG)return;const b=BG;BG=null;clearInterval(b.iv);try{b.clean&&b.clean()}catch(e){}if(b.el.classList&&b.el.classList.add)b.el.classList.add('out');setTimeout(()=>{if(b.el.remove)b.el.remove()},500);if(!nh)try{if(history.state&&history.state.bg)history.back()}catch(e){}}
 addEventListener('popstate',()=>bgClose(true));
-A.bgx=()=>bgClose();A.bgtest=()=>{if(BG)return;bgOpen(bgPick()||'breath','demo',true)};A.bgn=()=>{if(BGN)BGN()};
-{const s0=A.start,x0=A.xb;A.start=()=>{s0();bgMaybe()};A.xb=m=>{x0(m);bgMaybe()}}
+A.bgx=()=>bgClose();A.bgo=g=>{const k=bgBreak();if(BG||!k||!T()||!GM[g])return;bgOpen(g,k)};A.bgn=()=>{if(BGN)BGN()};
+const BGI={breath:'<path d="M12 3l2.2 6.8L21 12l-6.8 2.2L12 21l-2.2-6.8L3 12l6.8-2.2z"/>',swirl:'<path d="M12 12c0-1.7 2.5-1.7 2.5 0S12 17 9 14.5 8 6 14 5.5 21 14 17 18.5"/>',bub:'<circle cx="9" cy="14" r="4.5"/><circle cx="17" cy="8" r="3"/><circle cx="18" cy="17" r="1.8"/>',con:'<circle cx="5" cy="17" r="1.7"/><circle cx="11" cy="9" r="1.7"/><circle cx="18" cy="14" r="1.7"/><circle cx="20" cy="5" r="1.7"/><path d="M5 17l6-8 7 5 2-9"/>',str:'<circle cx="12" cy="4.5" r="2"/><path d="M12 7.5V15M12 11L6 6M12 11l6-5M12 15l-3.5 6M12 15l3.5 6"/>'};
+const bgIcons=()=>{if(!bgBreak()||!T())return'';return`<div class="bgi">${BGL.map(([g,n])=>`<button data-a="bgo:${g}" aria-label="${n}" title="${n}"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${BGI[g]}</svg></button>`).join('')}</div><div class="mut" style="text-align:center">نشاط للاستراحة (اختياري). يُغلق تلقائياً عند انتهاء الاستراحة.</div>`};
+{const ss0=V.session;V.session=()=>{const h=ss0(),i=bgIcons();return i?h.replace('<div class="grid">',i+'<div class="grid">'):h}}
 GM.breath=st=>{st.innerHTML='<svg viewBox="-60 -60 120 120" class="bgsv"><path id="bst" d="M0-40L9-9L40 0L9 9L0 40L-9 9L-40 0L-9-9Z" fill="#F5C451" style="transform-box:fill-box;transform-origin:center"/></svg><div class="bgl" id="bgl"></div>';
 const s=st.querySelector('#bst'),l=st.querySelector('#bgl'),ph=[['شهيق',4,1.5],['ثبات',4,1.5],['زفير',6,.7]],rm=matchMedia('(prefers-reduced-motion: reduce)').matches;let i=0,tm;
 const f=()=>{const[p,d,k]=ph[i++%3];l.textContent=tl(p);s.style.transition=rm?'none':`transform ${d}s ease-in-out`;s.style.transform=`scale(${k})`;tm=setTimeout(f,d*1000)};f();return()=>clearTimeout(tm)};
@@ -818,6 +840,22 @@ const STR=['تحريك الكتفين بدوائر بطيئة','مدّ الذر�
 GM.str=st=>{let i=Math.floor(Math.random()*STR.length),t0=Date.now();st.innerHTML='<div class="bgcard"><div class="bgl big" id="sc"></div><div class="bar"><i id="sb" style="width:0"></i></div><button class="chip" data-a="bgn">التالي</button><div class="mut">بدون إجهاد. يُنصح بتجنّب أي حركة تسبب ألماً.</div></div>';const c=st.querySelector('#sc'),b=st.querySelector('#sb');
 const show=()=>{c.textContent=tl(STR[i%STR.length]);t0=Date.now();b.style.width='0'};show();
 const iv=setInterval(()=>{const p=(Date.now()-t0)/3e4;b.style.width=Math.min(100,p*100)+'%';if(p>=1){i++;show()}},300);BGN=()=>{i++;show()};return()=>{clearInterval(iv);BGN=null}};
+/* notifications */
+const NTU='https://ntfy.sh/';let NT={key:'',sid:'',end:0};
+const ntOn=()=>!!(S.set.nt&&S.set.ntt),ntDel=(sid)=>{try{fetch(NTU+S.set.ntt+'/'+encodeURIComponent(sid),{method:'DELETE'}).catch(()=>{})}catch(e){}};
+async function ntPub(o){const r=await fetch(NTU,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({topic:S.set.ntt,priority:4,tags:['bell'],...o})});if(!r.ok)throw new Error(r.status);return r.json()}
+function ntCancel(){const p=NT;NT={key:'',sid:'',end:0};if(p.sid&&Date.now()<p.end-2500)ntDel(p.sid)}
+function ntSync(){if(!ntOn()){if(NT.key)ntCancel();return}const t=T();let key='';if(t&&t.run)key=(S.xb?'b':cur()&&cur().type=='study'?'s':'b')+Math.round(t.end/1000);
+if(key===NT.key)return;if(NT.key)ntCancel();if(!key)return;const end=t.end,secs=Math.round((end-Date.now())/1000);if(secs<10)return;NT.key=key;
+ntPub({title:'Study Buddy ✦',message:tl(key[0]=='s'?'انتهت جلسة الدراسة. حان وقت تسجيل ما أنجزته والاستراحة.':'انتهت الاستراحة. حان وقت العودة.'),delay:secs+'s'}).then(r=>{const sid=r.sequence_id||r.id;if(NT.key===key){NT.sid=sid;NT.end=end}else if(Date.now()<end-2500)ntDel(sid)}).catch(()=>{if(NT.key===key)NT.key=''})}
+function lnEnd(){try{if(!S.set.nl||ntOn()||typeof Notification=='undefined'||Notification.permission!='granted'||document.visibilityState=='visible')return;
+const study=!S.xb&&cur()&&cur().type=='study',title='Study Buddy ✦',body=tl(study?'انتهت جلسة الدراسة. حان وقت تسجيل ما أنجزته والاستراحة.':'انتهت الاستراحة. حان وقت العودة.'),o={body,icon:'icon-192.png',vibrate:[200,100,200],tag:'sb-timer',renotify:true};
+navigator.serviceWorker.getRegistration().then(r=>r?r.showNotification(title,o):new Notification(title,o)).catch(()=>{})}catch(e){}}
+const notifCard=()=>{const gr=typeof Notification!='undefined'&&Notification.permission=='granted',ln=!!S.set.nl&&gr;return card(`<b>إشعارات الجوال</b><p class="mut">للتنبيه عند نهاية الجلسة ونهاية الاستراحة.</p><button class="chip${ln?' on':''}" data-a="ntl">إشعار المتصفح: ${ln?'مفعّل':'معطّل'}</button><p class="mut">يعمل غالباً ما دام التطبيق مفتوحاً أو في الخلفية، لكن أندرويد قد يوقفه عند إغلاق التطبيق.</p><button class="chip${ntOn()?' on':''}" data-a="ntn">إشعار خارج التطبيق (ntfy): ${ntOn()?'مفعّل':'معطّل'}</button>${ntOn()?`<div class="mut">1) ثبّت تطبيق ntfy (من Google Play أو F-Droid).<br>2) اشترك في القناة التالية:</div><div class="tpc" dir="ltr">${esc(S.set.ntt)}</div><div class="rw"><button class="btn s g" data-a="ntc">نسخ</button><a class="btn s g" href="ntfy://ntfy.sh/${esc(S.set.ntt)}">فتح في ntfy</a><button class="btn s" data-a="ntt">اختبار الإشعار</button></div><p class="mut">اسم القناة سرّي، والرسائل نص عام بدون بياناتك. تُرسَل عبر خدمة ntfy.sh (طرف ثالث).</p>`:''}`)};
+A.ntl=()=>{if(S.set.nl){S.set.nl=0;save();return render()}if(typeof Notification=='undefined')return toast('هذا المتصفح لا يدعم الإشعارات');Notification.requestPermission().then(p=>{S.set.nl=p=='granted'?1:0;if(p!='granted')toast('لم يُسمح بالإشعارات');save();render()})};
+A.ntn=()=>{if(S.set.nt){S.set.nt=0;ntSync()}else{if(!S.set.ntt){const r=new Uint8Array(12);crypto.getRandomValues(r);S.set.ntt='sbd-'+[...r].map(x=>x.toString(36).padStart(2,'0')).join('')}S.set.nt=1}save();render()};
+A.ntc=()=>{try{navigator.clipboard.writeText(S.set.ntt);toast('تم نسخ اسم القناة')}catch(e){toast(S.set.ntt)}};
+A.ntt=()=>{ntPub({title:'Study Buddy ✦',message:tl('إشعار تجريبي: إذا ظهر هذا فالتنبيهات تعمل.')}).then(()=>toast('أُرسل الإشعار التجريبي')).catch(()=>toast('تعذر الإرسال. تحقق من الاتصال.'))};
 /* init */
 S.recs.forEach(r=>{if(r.title===undefined){r.title='تسجيل '+r.num;r.method='audio'}});
 if(S.day&&S.day.date!=today())S.day=null;
